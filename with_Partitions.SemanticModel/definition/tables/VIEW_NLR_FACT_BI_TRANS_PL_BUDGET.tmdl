@@ -283,15 +283,33 @@ table VIEW_NLR_FACT_BI_TRANS_PL_BUDGET
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	partition VIEW_NLR_FACT_BI_TRANS_PL_BUDGET = m
+	partition 1 = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("SCSQLSRV3.sc.pt\PRD", "BI_AFR"),
+				    Source = Sql.Database("SCSQLSRV3.sc.pt\PRD", "BI_CA"),
 				    PBI_VIEW_NLR_FACT_BI_TRANS_PL_BUDGET = Source{[Schema="PBI",Item="VIEW_NLR_FACT_BI_TRANS_PL_BUDGET"]}[Data]
 				in
 				    PBI_VIEW_NLR_FACT_BI_TRANS_PL_BUDGET
-
+					
+	partition 2 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SCSQLSRV3.sc.pt\PRD", "BI_IBE"),
+				    PBI_VIEW_NLR_FACT_BI_TRANS_PL_BUDGET = Source{[Schema="PBI",Item="VIEW_NLR_FACT_BI_TRANS_PL_BUDGET"]}[Data]
+				in
+				    PBI_VIEW_NLR_FACT_BI_TRANS_PL_BUDGET
+					
+	partition 3 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("SCSQLSRV3.sc.pt\PRD", "BI_CRP"),
+				    PBI_VIEW_NLR_FACT_BI_TRANS_PL_BUDGET = Source{[Schema="PBI",Item="VIEW_NLR_FACT_BI_TRANS_PL_BUDGET"]}[Data]
+				in
+				    PBI_VIEW_NLR_FACT_BI_TRANS_PL_BUDGET
+					
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
