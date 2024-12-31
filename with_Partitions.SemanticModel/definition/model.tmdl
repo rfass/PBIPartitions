@@ -12,7 +12,7 @@ annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
 
 annotation PBI_QueryOrder = ["VIEW_NLR_FACT_BI_TRANS_PL_BUDGET"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 annotation TranslationsBuilder = Version:2.2-Updated:2024-12-30
 
