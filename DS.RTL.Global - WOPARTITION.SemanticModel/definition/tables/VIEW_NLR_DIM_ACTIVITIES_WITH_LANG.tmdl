@@ -1,0 +1,163 @@
+/// DW: PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG
+table VIEW_NLR_DIM_ACTIVITIES_WITH_LANG
+	lineageTag: f62a4593-71d6-46cd-a6ae-e0b5409cc7c2
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_CODE
+	column ACTIVITY_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: f67c4e99-0dee-41a8-96ac-7aaa0ce7b247
+		summarizeBy: none
+		sourceColumn: ACTIVITY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_LEVEL_1_CODE
+	column ACTIVITY_LEVEL_1_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 9846147b-b8a0-46e1-b5c8-6f674cc46f22
+		summarizeBy: sum
+		sourceColumn: ACTIVITY_LEVEL_1_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_LEVEL_2_CODE
+	column ACTIVITY_LEVEL_2_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 54f8d997-380b-41cc-ac6c-795d5599b95b
+		summarizeBy: sum
+		sourceColumn: ACTIVITY_LEVEL_2_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_LEVEL_3_CODE
+	column ACTIVITY_LEVEL_3_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 82090b8c-59d9-4eea-8845-d1cc26b0e61c
+		summarizeBy: sum
+		sourceColumn: ACTIVITY_LEVEL_3_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_LEVEL_4_CODE
+	column ACTIVITY_LEVEL_4_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: f7425b77-aff2-4572-8e3a-6e882376533f
+		summarizeBy: sum
+		sourceColumn: ACTIVITY_LEVEL_4_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.BIFD_ACTIVITY_CODE
+	column BIFD_ACTIVITY_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: f40041e5-c5e6-45bc-9399-af96576ef663
+		summarizeBy: sum
+		sourceColumn: BIFD_ACTIVITY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_LEVEL_1_DESC
+	column ACTIVITY_LEVEL_1_DESC
+		dataType: string
+		lineageTag: bff5602f-a8d3-4de2-9766-5497921e4c67
+		summarizeBy: none
+		sourceColumn: ACTIVITY_LEVEL_1_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_LEVEL_2_DESC
+	column ACTIVITY_LEVEL_2_DESC
+		dataType: string
+		lineageTag: 147784c0-0775-4398-b495-0f315f8efdcf
+		summarizeBy: none
+		sourceColumn: ACTIVITY_LEVEL_2_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_LEVEL_3_DESC
+	column ACTIVITY_LEVEL_3_DESC
+		dataType: string
+		lineageTag: 63ccbb60-16b2-4adf-b390-b02c70e949a5
+		summarizeBy: none
+		sourceColumn: ACTIVITY_LEVEL_3_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_LEVEL_4_DESC
+	column ACTIVITY_LEVEL_4_DESC
+		dataType: string
+		lineageTag: 8f3bdfd1-3137-4445-8d8e-3f838e83d50c
+		summarizeBy: none
+		sourceColumn: ACTIVITY_LEVEL_4_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_DESC
+	column ACTIVITY_DESC
+		dataType: string
+		lineageTag: 64b6f33f-580d-4875-ae15-9756a498b9c3
+		summarizeBy: none
+		sourceColumn: ACTIVITY_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_TYPE
+	column ACTIVITY_TYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: d527d714-0aa0-4843-9d01-53910743f6c3
+		summarizeBy: sum
+		sourceColumn: ACTIVITY_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.CSN_ACTIVITY_CODE
+	column CSN_ACTIVITY_CODE
+		dataType: string
+		lineageTag: 6ef4b192-4b14-47ce-a7b5-cc7fbc06f1d3
+		summarizeBy: none
+		sourceColumn: CSN_ACTIVITY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.ACTIVITY_DISPLAY_ORDER
+	column ACTIVITY_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: b5de7df7-5955-4622-9043-f6391b1bf5a8
+		summarizeBy: sum
+		sourceColumn: ACTIVITY_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG.USER_CULTURE
+	column USER_CULTURE
+		dataType: string
+		lineageTag: 20ec9614-bd5f-4f98-b5dc-9157c2b743aa
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_ACTIVITIES_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_NLR_DIM_ACTIVITIES_GSC_WITH_LANG = Source{[Schema="PBI",Item="VIEW_NLR_DIM_ACTIVITIES_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_NLR_DIM_ACTIVITIES_GSC_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

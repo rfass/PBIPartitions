@@ -1,0 +1,108 @@
+/// DW: PBI.CALCGROUP_CURRENCY
+table CALCGROUP_CURRENCY
+	lineageTag: bb80fa90-6a05-4cb5-b340-af739961bd5f
+
+	calculationGroup
+
+		calculationItem LC = SELECTEDMEASURE()
+
+		calculationItem EUR = ```
+				
+				SWITCH(
+				    SELECTEDMEASURENAME(),
+				
+				    // Desvio
+				    "DR PL Delta Budget Matrix", [DR PL Delta Budget Matrix (EUR)],
+				    "DR PL Delta Budget", [DR PL Delta Budget (EUR)],
+				    "DR PL Delta Budget Adm Matrix", [DR PL Delta Budget Adm Matrix (EUR)],
+				    "DR PL Delta Budget Adm", [DR PL Delta Budget Adm (EUR)],
+				    "DR PL Delta LY Matrix", [DR PL Delta LY Matrix (EUR)],
+				    "DR PL Delta LY", [DR PL Delta LY (EUR)], 
+				    
+				    
+				    // Desvio %
+				    "DR PL Delta Budget %", [DR PL Delta Budget (EUR) %],
+				    "DR PL Delta Budget Adm %", [DR PL Delta Budget Adm (EUR) %],
+				    "DR PL Delta LY %", [DR PL Delta LY (EUR) %],
+				
+				
+				    // Valor
+				    "DR PL CY Matrix", [DR PL CY Matrix (EUR)],
+				    "DR PL CY", [DR PL CY (EUR)],
+				
+				
+				    // Valor %
+				    "DR PL CY Matrix %", [DR PL CY Matrix (EUR) %],
+				    "DR PL CY %", [DR PL CY (EUR) %],
+				    
+				
+				    
+				    // Budget
+				    "DR PL Budget Matrix", [DR PL Budget Matrix (EUR)],
+				    "DR PL Budget", [DR PL Budget (EUR)],
+				    "DR PL Budget Adm Matrix", [DR PL Budget Adm Matrix (EUR)],
+				    "DR PL Budget Adm", [DR PL Budget Adm (EUR)],
+				
+				
+				    // Budget %
+				    "DR PL Budget Matrix %", [DR PL Budget Matrix (EUR) %],
+				    "DR PL Budget %", [DR PL Budget (EUR) %],
+				    "DR PL Budget Adm Matrix %", [DR PL Budget Adm Matrix (EUR) %],
+				    "DR PL Budget Adm %", [DR PL Budget Adm (EUR) %],
+				    
+				
+				    
+				    // LY
+				    "DR PL LY Matrix", [DR PL LY Matrix (EUR)],
+				    "DR PL LY", [DR PL LY (EUR)],
+				
+				
+				    // LY %
+				    "DR PL LY Matrix %", [DR PL LY Matrix (EUR) %],
+				    "DR PL LY %", [DR PL LY (EUR) %],
+				
+				
+				    // Variation %
+				    "DR PL CY vs Budget %", [DR PL CY vs Budget (EUR) %],
+				    "DR PL CY vs Budget Adm %", [DR PL CY vs Budget Adm (EUR) %],
+				    "DR PL CY vs LY %", [DR PL CY vs LY (EUR) %],
+				    "DR PL Detail CY vs Budget", [DR PL Detail CY vs Budget (EUR)],
+				    "DR PL Detail CY vs Budget Adm", [DR PL Detail CY vs Budget Adm (EUR)],
+				    "DR PL Detail CY vs LY", [DR PL Detail CY vs LY (EUR)],
+				
+				
+				    // UI
+				    "Visual Title", [Visual Title],
+				    "Indicators", [Indicators (EUR)],
+				    "Color DR PL Delta Budget Matrix", [Color DR PL Delta Budget Matrix],
+				    "Color DR PL Delta Budget Adm Matrix", [Color DR PL Delta Budget Adm Matrix], 
+				    "Color DR PL Delta LY Matrix", [Color DR PL Delta LY Matrix],
+				    "simbol_daily_update_NLR", [simbol_daily_update_NLR],
+				    "Title - Clear Filters", [Title - Clear Filters],
+				    "Title - Close Filters", [Title - Close Filters],
+				    "Title - Filter", [Title - Filter],
+				    "Title - Matrix", [Title - Matrix],
+				    "Cabeçalhos", [Cabeçalhos]
+				)
+				```
+
+	/// DW:PBI.CALCGROUP_CURRENCY.Currency
+	column Currency
+		dataType: string
+		lineageTag: 09c63d81-a8d3-405f-bf09-398e48546a5b
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.CALCGROUP_CURRENCY.Ordinal
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		lineageTag: cf2e300c-91a0-478f-979c-ef6e0c222895
+		summarizeBy: none
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

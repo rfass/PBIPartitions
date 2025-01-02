@@ -1,0 +1,50 @@
+/// DW: PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_FRANCHISE
+table SCY_View_DS_RTL_GLOBAL_DIM_GBL_FRANCHISE
+	isHidden
+	lineageTag: 60c048a5-b698-4661-9f2a-d43aa88939fe
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_FRANCHISE.O365_USER
+	column O365_USER
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 00e34033-a92d-4e25-94b5-21b9da134542
+		summarizeBy: none
+		sourceColumn: O365_USER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_FRANCHISE.FRANCHISE_CODE
+	column FRANCHISE_CODE
+		dataType: decimal
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 4578f5f3-b8c5-447a-87f4-be9bc2ba089d
+		summarizeBy: none
+		sourceColumn: FRANCHISE_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition SCY_View_DS_RTL_GLOBAL_DIM_GBL_FRANCHISE = m
+		mode: import
+		queryGroup: Security
+		source =
+				let
+				    Source = Sql.Database(Server, Security_DB),
+				    SCY_View_DS.RTL.GLOBAL_DIM_GBL.FRANCHISE = Source{[Schema="SCY",Item="View_DS.RTL.GLOBAL_DIM_GBL.FRANCHISE"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(SCY_View_DS.RTL.GLOBAL_DIM_GBL.FRANCHISE,{{"FRANCHISE_CODE", type number}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

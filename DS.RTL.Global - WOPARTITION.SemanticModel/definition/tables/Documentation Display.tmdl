@@ -1,0 +1,267 @@
+/// DW: PBI.Documentation Display
+table 'Documentation Display'
+	isHidden
+	lineageTag: 7b9be2ca-814f-4465-84ea-6b74bf963213
+
+	measure PDFBase64 =
+			
+			
+			IF(
+			    HASONEVALUE('Documentation Display'[Document_Name]),
+			    CONCATENATEX('Documentation Display', 'Documentation Display'[File_Code],, 'Documentation Display'[Índice]
+			    )
+			)
+		isHidden
+		lineageTag: 19996900-4397-437f-b2b4-ae76325390e9
+
+		changedProperty = IsHidden
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["UNNECESSARY_MEASURES","INTEGER_FORMATTING"]}
+
+	measure DocumentName =
+			
+			
+			IF(
+			    HASONEVALUE('Documentation Display'[Document_Name]),
+			    SELECTEDVALUE('Documentation Display'[Document_Name])
+			)
+		isHidden
+		lineageTag: 7b2fdf90-d8cf-49e6-8412-1aa818698830
+
+		changedProperty = IsHidden
+
+		annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["UNNECESSARY_MEASURES","INTEGER_FORMATTING"]}
+
+	/// DW:PBI.Documentation Display.Id
+	column Id
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 9deba587-637c-4264-a80f-04513085a531
+		summarizeBy: none
+		sourceColumn: Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Id
+	column Document_Id
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 8a9f121d-377d-4eb2-b038-a175d18a65d1
+		summarizeBy: none
+		sourceColumn: Document_Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Name
+	column Document_Name
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 534f2c82-316e-4963-b4a7-bc825940175b
+		summarizeBy: none
+		sourceColumn: Document_Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Path_Complete
+	column Document_Path_Complete
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 8e300ec1-1c7f-48fb-aaf1-7d720ab17710
+		summarizeBy: none
+		sourceColumn: Document_Path_Complete
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Path_Level_1
+	column Document_Path_Level_1
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: fc479688-1c0f-414a-8fed-a8072b128a4f
+		summarizeBy: none
+		sourceColumn: Document_Path_Level_1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Path_Level_2
+	column Document_Path_Level_2
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 64e2f0f8-3eee-4cad-b529-b28c981df53c
+		summarizeBy: none
+		sourceColumn: Document_Path_Level_2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Path_Level_3
+	column Document_Path_Level_3
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 6a518a57-b793-4227-8878-833d2b279e34
+		summarizeBy: none
+		sourceColumn: Document_Path_Level_3
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Path_Level_4
+	column Document_Path_Level_4
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: acaea59f-0d11-4fb5-8a48-bb2541d97f83
+		summarizeBy: none
+		sourceColumn: Document_Path_Level_4
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Path_Level_5
+	column Document_Path_Level_5
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 7a82896d-c44d-4ac5-a0af-504576307bc6
+		summarizeBy: none
+		sourceColumn: Document_Path_Level_5
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_LastModified_By
+	column Document_LastModified_By
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 66962318-cc75-4b5d-8d57-14fbdb28feaa
+		summarizeBy: none
+		sourceColumn: Document_LastModified_By
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_LastModified
+	column Document_LastModified
+		dataType: dateTime
+		isHidden
+		formatString: General Date
+		isAvailableInMdx: false
+		lineageTag: 17a53593-b66d-48d2-a602-c8fdabf4ec39
+		summarizeBy: none
+		sourceColumn: Document_LastModified
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Approval_State
+	column Document_Approval_State
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 8a64f2f4-0ec3-4fcc-950e-652c770613d3
+		summarizeBy: none
+		sourceColumn: Document_Approval_State
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Approval_By
+	column Document_Approval_By
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 1fa799fc-c7e7-4319-b1f6-d3605798e639
+		summarizeBy: none
+		sourceColumn: Document_Approval_By
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Document_Approval_Date
+	column Document_Approval_Date
+		dataType: dateTime
+		isHidden
+		formatString: mm/dd/yyyy
+		isAvailableInMdx: false
+		lineageTag: 5caa3da6-0238-4d6c-aed4-bf188e475b08
+		summarizeBy: none
+		sourceColumn: Document_Approval_Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.File_Code
+	column File_Code
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 1081a95d-489d-437f-b42b-9aa497a1b02b
+		summarizeBy: none
+		sourceColumn: File_Code
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.Documentation Display.Índice
+	column Índice
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: e00733ce-28a4-4df7-842e-b4b15ff04c08
+		summarizeBy: none
+		sourceColumn: Índice
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	partition 'Documentation Display' = m
+		mode: import
+		source =
+				let
+				    Source = PowerPlatform.Dataflows(null),
+				    Workspaces = Source{[Id="Workspaces"]}[Data],
+				    #"74d3385c-4bf2-4177-8736-33337ffdcc9b" = Workspaces{[workspaceId="74d3385c-4bf2-4177-8736-33337ffdcc9b"]}[Data],
+				    #"e43c6743-f2f4-4ae4-aa6e-7aafe9fe576b" = #"74d3385c-4bf2-4177-8736-33337ffdcc9b"{[dataflowId="e43c6743-f2f4-4ae4-aa6e-7aafe9fe576b"]}[Data],
+				    #"Documentation Display_" = #"e43c6743-f2f4-4ae4-aa6e-7aafe9fe576b"{[entity="Documentation Display",version=""]}[Data]
+				in
+				    #"Documentation Display_"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+	annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["ENSURE_TABLES_HAVE_RELATIONSHIPS"]}
+

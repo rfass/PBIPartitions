@@ -1,0 +1,88 @@
+table VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG
+	lineageTag: 612e0e5c-fbc7-4e81-a617-ca391926a378
+
+	column SALES_TYPE_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e3cb6617-6113-46f3-83ca-ba925d01ab80
+		summarizeBy: none
+		sourceColumn: SALES_TYPE_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_TYPE_LEVEL_1_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c66e6d6-c61a-403d-9ffa-219c06b5313a
+		summarizeBy: sum
+		sourceColumn: SALES_TYPE_LEVEL_1_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_TYPE_LEVEL_2_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: ff56eb2a-05ef-402e-bc2a-4cd5a9891140
+		summarizeBy: sum
+		sourceColumn: SALES_TYPE_LEVEL_2_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_TYPE_LEVEL_1_DESC
+		dataType: string
+		lineageTag: f2736cca-9513-4543-94d3-7efad05e39aa
+		summarizeBy: none
+		sourceColumn: SALES_TYPE_LEVEL_1_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_TYPE_LEVEL_2_DESC
+		dataType: string
+		lineageTag: d94581ec-f764-4e26-83ac-0eaf204646fa
+		summarizeBy: none
+		sourceColumn: SALES_TYPE_LEVEL_2_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_TYPE_DESC
+		dataType: string
+		lineageTag: bd6ef626-b9aa-492b-8a67-b2454823426f
+		summarizeBy: none
+		sourceColumn: SALES_TYPE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_TYPE_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 34ca35dd-cd22-4de0-9b78-b6a06434b54f
+		summarizeBy: sum
+		sourceColumn: SALES_TYPE_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column USE_CULTURE
+		dataType: string
+		lineageTag: 6891e19f-50fb-4680-9a95-4baa4be7e40b
+		summarizeBy: none
+		sourceColumn: USE_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG = Source{[Schema="PBI",Item="VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,34 @@
+table SCY_View_DS_RTL_GLOBAL_DIM_GBL_CLIENT
+	lineageTag: 0ca957fd-f35c-444f-baf5-d9d7ddd4eb2c
+
+	column O365_USER
+		dataType: string
+		lineageTag: b5d72480-eb65-4c05-a9ed-5d77e6c127fe
+		summarizeBy: none
+		sourceColumn: O365_USER
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENT_ID
+		dataType: string
+		isHidden
+		lineageTag: c52653d8-3bd7-4513-8b4e-000061d41c54
+		summarizeBy: none
+		sourceColumn: CLIENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SCY_View_DS_RTL_GLOBAL_DIM_GBL_CLIENT = m
+		mode: import
+		queryGroup: Security
+		source =
+				let
+				    Source = Sql.Database(Server, Security_DB),
+				    SCY_View_DS.RTL.GLOBAL_DIM_GBL.CLIENT = Source{[Schema="SCY",Item="View_DS.RTL.GLOBAL_DIM_GBL.CLIENT"]}[Data]
+				in
+				    SCY_View_DS.RTL.GLOBAL_DIM_GBL.CLIENT
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,78 @@
+/// DW: PBI.VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG
+table VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG
+	lineageTag: 2c00a5c3-4617-47be-b471-c186c685ac16
+
+	/// DW:PBI.VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG.VALUE_TYPE_CODE
+	column VALUE_TYPE_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 29a4186c-c4f1-4ee1-ac5a-125e30ed6174
+		summarizeBy: none
+		sourceColumn: VALUE_TYPE_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG.VALUE_TYPE_DESC
+	column VALUE_TYPE_DESC
+		dataType: string
+		lineageTag: ef3b4357-1280-446e-bd21-c70ef1c9f522
+		summarizeBy: none
+		sourceColumn: VALUE_TYPE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG.VALUE_TYPE_DESC2
+	column VALUE_TYPE_DESC2
+		dataType: string
+		lineageTag: 424bcd55-27c9-45c9-8cf4-1f7d18a396d0
+		summarizeBy: none
+		sourceColumn: VALUE_TYPE_DESC2
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG.VALUE_TYPE_DESC3
+	column VALUE_TYPE_DESC3
+		dataType: string
+		lineageTag: e8e3a281-a4b8-420c-ba61-bd5c1f916172
+		summarizeBy: none
+		sourceColumn: VALUE_TYPE_DESC3
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG.VALUE_TYPE_DISPLAY_ORDER
+	column VALUE_TYPE_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: ce694265-18e0-41c1-957b-a9cb56b8a39d
+		summarizeBy: sum
+		sourceColumn: VALUE_TYPE_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG.USER_CULTURE
+	column USER_CULTURE
+		dataType: string
+		lineageTag: 42c8beac-44a2-4a11-b630-8175ab10f24b
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG = Source{[Schema="PBI",Item="VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

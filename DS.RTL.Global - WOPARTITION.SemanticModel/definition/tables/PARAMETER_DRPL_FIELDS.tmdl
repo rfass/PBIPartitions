@@ -1,0 +1,121 @@
+table PARAMETER_DRPL_FIELDS
+	lineageTag: 80266d29-ab43-4df5-be90-7f9feda30a67
+
+	column PARAMETER_FIELDS
+		lineageTag: 1c7cafb1-feaf-47fc-800a-9ab92685e2c6
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'PARAMETER_FIELDS Order'
+
+		relatedColumnDetails
+			groupByColumn: 'PARAMETER_FIELDS Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PARAMETER_FIELDS Fields'
+		isHidden
+		lineageTag: 845ebfdb-397a-4353-ab8d-c75c031076df
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'PARAMETER_FIELDS Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PARAMETER_FIELDS Order'
+		isHidden
+		formatString: 0
+		lineageTag: d8c771e5-ea16-4145-8bc2-2b97136a5287
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_CULTURE
+		lineageTag: bf936732-48f5-43b8-ac66-12ccb8d50561
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PARAMETER_DRPL_FIELDS = calculated
+		mode: import
+		source = ```
+				{
+				    ("PL Level 1", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]), 1, "en-US"),
+				    ("PL Level 2", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]), 2, "en-US"),
+				    ("PL Level 3", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]), 3, "en-US"),
+				    ("PL Level 4", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]), 4, "en-US"),
+				    ("PL Level 5", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]), 5, "en-US"),
+				    ("Company Level 1", NAMEOF('VIEW_NLR_DIM_COMPANIES_WITH_LANG'[COMPANY_LEVEL_1_DESC]), 6, "en-US"),
+				    ("Company Level 2", NAMEOF('VIEW_NLR_DIM_COMPANIES_WITH_LANG'[COMPANY_LEVEL_2_DESC]), 7, "en-US"),
+				    ("Site Level 1", NAMEOF('VIEW_GBL_DIM_SITES_WITH_LANG'[SITE_LEVEL_1_CODE]), 8, "en-US"),
+				    ("Site Level 2", NAMEOF('VIEW_GBL_DIM_SITES_WITH_LANG'[SITE_LEVEL_2_CODE]), 9, "en-US"),
+				    ("Activity Level 1", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_1_DESC]), 10, "en-US"),
+				    ("Activity Level 2", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_2_DESC]), 11, "en-US"),
+				    ("Activity Level 3", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_3_DESC]), 12, "en-US"),
+				    ("Franchise", NAMEOF('VIEW_GBL_DIM_FRANCHISES_WITH_LANG'[FRANCHISE_DESC]), 13, "en-US"),
+				    ("Sales Channel", NAMEOF('VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG'[SALES_TYPE_DESC]), 14, "en-US"),
+				    ("Year-Month", NAMEOF('VIEW_GBL_DIM_SHORT_CALENDAR'[YEAR_MONTH_SHORT_DESC]), 15, "en-US"),
+				    
+				    
+				    ("PL Nível 1", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]), 1, "pt-PT"),
+				    ("PL Nível 2", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]), 2, "pt-PT"),
+				    ("PL Nível 3", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]), 3, "pt-PT"),
+				    ("PL Nível 4", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]), 4, "pt-PT"),
+				    ("PL Nível 5", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]), 5, "pt-PT"),
+				    ("Empresa Nível 1", NAMEOF('VIEW_NLR_DIM_COMPANIES_WITH_LANG'[COMPANY_LEVEL_1_DESC]), 6, "pt-PT"),
+				    ("Empresa Nível 2", NAMEOF('VIEW_NLR_DIM_COMPANIES_WITH_LANG'[COMPANY_LEVEL_2_DESC]), 7, "pt-PT"),
+				    ("Polo Nível 1", NAMEOF('VIEW_GBL_DIM_SITES_WITH_LANG'[SITE_LEVEL_1_CODE]), 8, "pt-PT"),
+				    ("Polo Nível 2", NAMEOF('VIEW_GBL_DIM_SITES_WITH_LANG'[SITE_LEVEL_2_CODE]), 9, "pt-PT"),
+				    ("Atividade Nível 1", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_1_DESC]), 10, "pt-PT"),
+				    ("Atividade Nível 2", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_2_DESC]), 11, "pt-PT"),
+				    ("Atividade Nível 3", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_3_DESC]), 12, "pt-PT"),
+				    ("Marca", NAMEOF('VIEW_GBL_DIM_FRANCHISES_WITH_LANG'[FRANCHISE_DESC]), 13, "pt-PT"),
+				    ("Canal de Vendas", NAMEOF('VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG'[SALES_TYPE_DESC]), 14, "pt-PT"),
+				    ("Ano-Mês", NAMEOF('VIEW_GBL_DIM_SHORT_CALENDAR'[YEAR_MONTH_SHORT_DESC]), 15, "pt-PT"),
+				    
+				    
+				    ("PL Nivel 1", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]), 1, "es-ES"),
+				    ("PL Nivel 2", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]), 2, "es-ES"),
+				    ("PL Nivel 3", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]), 3, "es-ES"),
+				    ("PL Nivel 4", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]), 4, "es-ES"),
+				    ("PL Nivel 5", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]), 5, "es-ES"),
+				    ("Compañía Nivel 1", NAMEOF('VIEW_NLR_DIM_COMPANIES_WITH_LANG'[COMPANY_LEVEL_1_DESC]), 6, "es-ES"),
+				    ("Compañía Nivel 2", NAMEOF('VIEW_NLR_DIM_COMPANIES_WITH_LANG'[COMPANY_LEVEL_2_DESC]), 7, "es-ES"),
+				    ("Sitio Nivel 1", NAMEOF('VIEW_GBL_DIM_SITES_WITH_LANG'[SITE_LEVEL_1_CODE]), 8, "es-ES"),
+				    ("Sitio Nivel 2", NAMEOF('VIEW_GBL_DIM_SITES_WITH_LANG'[SITE_LEVEL_2_CODE]), 9, "es-ES"),
+				    ("Actividad Nivel 1", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_1_DESC]), 10, "es-ES"),
+				    ("Actividad Nivel 2", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_2_DESC]), 11, "es-ES"),
+				    ("Actividad Nivel 3", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_3_DESC]), 12, "es-ES"),
+				    ("Franquicia", NAMEOF('VIEW_GBL_DIM_FRANCHISES_WITH_LANG'[FRANCHISE_DESC]), 13, "es-ES"),
+				    ("Canal de Ventas", NAMEOF('VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG'[SALES_TYPE_DESC]), 14, "es-ES"),
+				    ("Año-Mes", NAMEOF('VIEW_GBL_DIM_SHORT_CALENDAR'[YEAR_MONTH_SHORT_DESC]), 15, "es-ES"),
+				
+				    
+				    ("PL Niveau 1", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]), 1, "fr-FR"),
+				    ("PL Niveau 2", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]), 2, "fr-FR"),
+				    ("PL Niveau 3", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]), 3, "fr-FR"),
+				    ("PL Niveau 4", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]), 4, "fr-FR"),
+				    ("PL Niveau 5", NAMEOF('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]), 5, "fr-FR"),
+				    ("Entreprise Niveau 1", NAMEOF('VIEW_NLR_DIM_COMPANIES_WITH_LANG'[COMPANY_LEVEL_1_DESC]), 6, "fr-FR"),
+				    ("Entreprise Niveau 2", NAMEOF('VIEW_NLR_DIM_COMPANIES_WITH_LANG'[COMPANY_LEVEL_2_DESC]), 7, "fr-FR"),
+				    ("Site Niveau 1", NAMEOF('VIEW_GBL_DIM_SITES_WITH_LANG'[SITE_LEVEL_1_CODE]), 8, "fr-FR"),
+				    ("Site Niveau 2", NAMEOF('VIEW_GBL_DIM_SITES_WITH_LANG'[SITE_LEVEL_2_CODE]), 9, "fr-FR"),
+				    ("Activité Niveau 1", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_1_DESC]), 10, "fr-FR"),
+				    ("Activité Niveau 2", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_2_DESC]), 11, "fr-FR"),
+				    ("Activité Niveau 3", NAMEOF('VIEW_NLR_DIM_ACTIVITIES_WITH_LANG'[ACTIVITY_LEVEL_3_DESC]), 12, "fr-FR"),
+				    ("Franchise", NAMEOF('VIEW_GBL_DIM_FRANCHISES_WITH_LANG'[FRANCHISE_DESC]), 13, "fr-FR"),
+				    ("Canal de Vente", NAMEOF('VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG'[SALES_TYPE_DESC]), 14, "fr-FR"),
+				    ("Année-Mois", NAMEOF('VIEW_GBL_DIM_SHORT_CALENDAR'[YEAR_MONTH_SHORT_DESC]), 15, "fr-FR")
+				    
+				}
+				```
+
+	annotation PBI_Id = 7805dcf9282a4c37bc456f3a5bc44ad6
+

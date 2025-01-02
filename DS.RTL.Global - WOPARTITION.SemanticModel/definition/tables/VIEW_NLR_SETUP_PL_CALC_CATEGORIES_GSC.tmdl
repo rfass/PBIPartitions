@@ -1,0 +1,61 @@
+/// DW: PBI.VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC
+table VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC
+	isHidden
+	lineageTag: 6855b8b9-e0de-4d4a-af84-c2e7b1e47e45
+
+	/// DW:PBI.VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC.PL_CODE
+	column PL_CODE
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 8ddf92f1-dc2a-46c5-abd5-5c949ddaa885
+		summarizeBy: none
+		sourceColumn: PL_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC.PL_CODE_SOURCE_FORCALCULATION
+	column PL_CODE_SOURCE_FORCALCULATION
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: bd906eb0-1c97-47db-938f-a9532e135856
+		summarizeBy: none
+		sourceColumn: PL_CODE_SOURCE_FORCALCULATION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC.PL_CODE_SOURCE_SIGNAL_FORCALCULATIONS
+	column PL_CODE_SOURCE_SIGNAL_FORCALCULATIONS
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 47f87d86-ab7f-4e7b-af65-6fcad19a189c
+		summarizeBy: sum
+		sourceColumn: PL_CODE_SOURCE_SIGNAL_FORCALCULATIONS
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC = Source{[Schema="PBI",Item="VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC"]}[Data]
+				in
+				    PBI_VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,32 @@
+/// DW: PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG_BRIDGE
+table VIEW_NLR_DIM_ACTIVITIES_WITH_LANG_BRIDGE
+	lineageTag: 823a077c-b9cc-4954-8322-b1785d92061a
+
+	/// DW:PBI.VIEW_NLR_DIM_ACTIVITIES_WITH_LANG_BRIDGE.ACTIVITY_CODE
+	column ACTIVITY_CODE
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: e03f0505-831c-4261-a811-9d52a8f18d87
+		summarizeBy: none
+		sourceColumn: ACTIVITY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_ACTIVITIES_WITH_LANG_BRIDGE = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = VIEW_NLR_DIM_ACTIVITIES_WITH_LANG,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"ACTIVITY_CODE"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

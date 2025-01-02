@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "DS.RTL.Global - WOPARTITION"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "7fae85d3-d7b0-4c9c-812e-a42297b0eba0"
+  }
+}

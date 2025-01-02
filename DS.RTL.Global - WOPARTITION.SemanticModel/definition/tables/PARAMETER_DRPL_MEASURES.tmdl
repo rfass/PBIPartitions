@@ -1,0 +1,121 @@
+table PARAMETER_DRPL_MEASURES
+	lineageTag: c910b41c-e09d-4f8a-b575-7ed278a19562
+
+	column PARAMETER_CHART
+		lineageTag: b2446e62-a46f-4ee3-8289-3d69da38d2d8
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'PARAMETER_CHART Order'
+
+		relatedColumnDetails
+			groupByColumn: 'PARAMETER_CHART Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PARAMETER_CHART Fields'
+		isHidden
+		lineageTag: 0f84e901-f873-411d-b713-36f023a7abef
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'PARAMETER_CHART Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PARAMETER_CHART Order'
+		isHidden
+		formatString: 0
+		lineageTag: 5600bcf4-c5aa-4e38-84f4-c43cfd30567b
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_CULTURE
+		lineageTag: 3cbec625-4b95-4fb3-b4eb-d67b47f3a368
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value_Type
+		isHidden
+		formatString: 0
+		lineageTag: be1ac929-1a25-4c94-bbc4-e30898a5a0dd
+		summarizeBy: none
+		sourceColumn: [Value5]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PARAMETER_DRPL_MEASURES = calculated
+		mode: import
+		source =
+				{
+				
+				    ("CY", NAMEOF('MEASURE_TABLE'[DR PL CY]), 0, "pt-PT", 2),
+				    ("Orç", NAMEOF('MEASURE_TABLE'[DR PL Budget]), 1, "pt-PT", 3),
+				    ("Δ Orç", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget]), 2, "pt-PT", 3),
+				    ("Orç Adm", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm]), 3, "pt-PT", 4),
+				    ("Δ Orç Adm", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm]), 4, "pt-PT", 4),
+				    ("LY", NAMEOF('MEASURE_TABLE'[DR PL LY]), 5, "pt-PT", 2),
+				    ("Δ LY", NAMEOF('MEASURE_TABLE'[DR PL Delta LY]), 6, "pt-PT", 2),
+				    ("CY vs Orç", NAMEOF([DR PL CY vs Budget %]), 7, "pt-PT", 3),
+				    ("CY vs Orç Adm", NAMEOF([DR PL CY vs Budget Adm %]), 8, "pt-PT", 4),
+				    ("CY vs LY", NAMEOF([DR PL CY vs LY %]), 9, "pt-PT", 2),
+				    ("vs. Orç", NAMEOF([DR PL Detail CY vs Budget]), 10, "pt-PT", 3),
+				    ("vs. Orç Adm", NAMEOF([DR PL Detail CY vs Budget Adm]), 11, "pt-PT", 4),
+				    ("vs. LY", NAMEOF([DR PL Detail CY vs LY]), 12, "pt-PT", 2),
+				
+				
+				    ("CY", NAMEOF('MEASURE_TABLE'[DR PL CY]), 0, "en-US", 2),
+				    ("Budget", NAMEOF('MEASURE_TABLE'[DR PL Budget]), 1, "en-US", 3),
+				    ("Δ Budget", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget]), 2, "en-US", 3),
+				    ("Budget Adm", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm]), 3, "en-US", 4),
+				    ("Δ Budget Adm", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm]), 4, "en-US", 4),
+				    ("LY", NAMEOF('MEASURE_TABLE'[DR PL LY]), 5, "en-US", 2),
+				    ("Δ LY", NAMEOF('MEASURE_TABLE'[DR PL Delta LY]), 6, "en-US", 2),
+				    ("CY vs Budget", NAMEOF([DR PL CY vs Budget %]), 7, "en-US", 3),
+				    ("CY vs Budget Adm", NAMEOF([DR PL CY vs Budget Adm %]), 8, "en-US", 4),
+				    ("CY vs LY", NAMEOF([DR PL CY vs LY %]), 9, "en-US", 2),
+				    ("vs. Budget", NAMEOF([DR PL Detail CY vs Budget]), 10, "en-US", 3),
+				    ("vs. Budget Adm", NAMEOF([DR PL Detail CY vs Budget Adm]), 11, "en-US", 4),
+				    ("vs. LY", NAMEOF([DR PL Detail CY vs LY]), 12, "en-US", 2),
+				
+				
+				    ("CY", NAMEOF('MEASURE_TABLE'[DR PL CY]), 0, "es-ES", 2),
+				    ("Ppto", NAMEOF('MEASURE_TABLE'[DR PL Budget]), 1, "es-ES", 3),
+				    ("Δ Ppto", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget]), 2, "es-ES", 3),
+				    ("Ppto Adm", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm]), 3, "es-ES", 4),
+				    ("Δ Ppto Adm", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm]), 4, "es-ES", 4),
+				    ("LY", NAMEOF('MEASURE_TABLE'[DR PL LY]), 5, "es-ES", 2),
+				    ("Δ LY", NAMEOF('MEASURE_TABLE'[DR PL Delta LY]), 6, "es-ES", 2),
+				    ("CY vs Ppto", NAMEOF([DR PL CY vs Budget %]), 7, "es-ES", 3),
+				    ("CY vs Ppto Adm", NAMEOF([DR PL CY vs Budget Adm %]), 8, "es-ES", 4),
+				    ("CY vs LY", NAMEOF([DR PL CY vs LY %]), 9, "es-ES", 2),
+				    ("vs. Ppto", NAMEOF([DR PL Detail CY vs Budget]), 10, "es-ES", 3),
+				    ("vs. Ppto Adm", NAMEOF([DR PL Detail CY vs Budget Adm]), 11, "es-ES", 4),
+				    ("vs. LY", NAMEOF([DR PL Detail CY vs LY]), 12, "es-ES", 2),
+				
+				
+				    ("CY", NAMEOF('MEASURE_TABLE'[DR PL CY]), 0, "fr-FR", 2),
+				    ("Budget", NAMEOF('MEASURE_TABLE'[DR PL Budget]), 1, "fr-FR", 3),
+				    ("Δ Budget", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget]), 2, "fr-FR", 3),
+				    ("Budget Adm", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm]), 3, "fr-FR", 4),
+				    ("Δ Budget Adm", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm]), 4, "fr-FR", 4),
+				    ("LY", NAMEOF('MEASURE_TABLE'[DR PL LY]), 5, "fr-FR", 2),
+				    ("Δ LY", NAMEOF('MEASURE_TABLE'[DR PL Delta LY]), 6, "fr-FR", 2),
+				    ("CY vs Budget", NAMEOF([DR PL CY vs Budget %]), 7, "fr-FR", 3),
+				    ("CY vs Budget Adm", NAMEOF([DR PL CY vs Budget Adm %]), 8, "fr-FR", 4),
+				    ("CY vs LY", NAMEOF([DR PL CY vs LY %]), 9, "fr-FR", 2),
+				    ("vs. Budget", NAMEOF([DR PL Detail CY vs Budget]), 10, "fr-FR", 3),
+				    ("vs. Budget Adm", NAMEOF([DR PL Detail CY vs Budget Adm]), 11, "fr-FR", 4),
+				    ("vs. LY", NAMEOF([DR PL Detail CY vs LY]), 12, "fr-FR", 2)
+				}
+
+	annotation PBI_Id = efd6b3cf21b6431e8df4bfc206f7adf7
+

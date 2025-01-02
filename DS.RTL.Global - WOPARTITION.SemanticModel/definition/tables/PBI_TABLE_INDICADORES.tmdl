@@ -1,0 +1,129 @@
+table PBI_TABLE_INDICADORES
+	lineageTag: 440358a2-6145-4f17-876e-cf46211dbce9
+
+	column Id
+		formatString: 0
+		lineageTag: be7fff1f-3343-4c43-a092-a3d53cf367fb
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indicador
+		lineageTag: d8e133b0-ff3a-4e61-b55c-145813f4afb7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Indicador]
+		sortByColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column Medida
+		lineageTag: 269772ac-c76e-439b-ada2-614c0dc8e967
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Medida]
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_CULTURE
+		lineageTag: ee1f4e11-9a9c-4440-ac4a-8b8c14a94d27
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [USER_CULTURE]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value Type'
+		isHidden
+		formatString: 0
+		lineageTag: 890f8535-dcbb-472a-ae9b-578d0a42b33a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value Type]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PBI_TABLE_INDICADORES = calculated
+		mode: import
+		source = ```
+				
+				
+				 DATATABLE(
+				    "Id", INTEGER,
+				    "Indicador", STRING,
+				    "Medida", STRING,
+				    "USER_CULTURE", STRING,
+				    "Value Type", INTEGER,
+				    {
+				        { 1, "CY", "DR PL CY Matrix", "pt-PT", 2 },
+				        { 2, "CY %", "DR PL CY Matrix %", "pt-PT", 2 },
+				        { 3, "Orç", "DR PL Budget Matrix", "pt-PT", 3 },
+				        { 4, "Orç %", "DR PL Budget Matrix %", "pt-PT", 3 },
+				        { 5, "Δ Orç", "DR PL Delta Budget Matrix", "pt-PT", 3 },
+				        { 6, "Δ Orç %", "DR PL Delta Budget %", "pt-PT", 3 },
+				        { 7, "Orç Adm", "DR PL Budget Adm Matrix", "pt-PT", 4 },
+				        { 8, "Orç Adm %", "DR PL Budget Adm Matrix %", "pt-PT", 4 },
+				        { 9, "Δ Orç Adm", "DR PL Delta Budget Adm Matrix", "pt-PT", 4 },
+				        { 10, "Δ Orç Adm %", "DR PL Delta Budget Adm %", "pt-PT", 4 },
+				        { 11, "LY", "DR PL LY Matrix", "pt-PT", 2 },
+				        { 12, "LY %", "DR PL LY Matrix %", "pt-PT", 2 },
+				        { 13, "Δ LY", "DR PL Delta LY Matrix", "pt-PT", 2 },
+				        { 14, "Δ LY %", "DR PL Delta LY %", "pt-PT", 2 },
+				
+				
+				        { 1, "CY", "DR PL CY Matrix", "en-US", 2 },
+				        { 2, "CY %", "DR PL CY Matrix %", "en-US", 2 },
+				        { 3, "Budget", "DR PL Budget Matrix", "en-US", 3 },
+				        { 4, "Budget %", "DR PL Budget Matrix %", "en-US", 3 },
+				        { 5, "Δ Budget", "DR PL Delta Budget Matrix", "en-US", 3 },
+				        { 6, "Δ Budget %", "DR PL Delta Budget %", "en-US", 3 },
+				        { 7, "Budget Adm", "DR PL Budget Adm Matrix", "en-US", 4 },
+				        { 8, "Budget Adm", "DR PL Budget Adm Matrix %", "en-US", 4 },
+				        { 9, "Δ Budget Adm", "DR PL Delta Budget Adm Matrix", "en-US", 4 },
+				        { 10, "Δ Budget Adm %", "DR PL Delta Budget Adm %", "en-US", 4 },
+				        { 11, "LY", "DR PL LY Matrix", "en-US", 2 },
+				        { 12, "LY %", "DR PL LY Matrix %", "en-US", 2 },
+				        { 13, "Δ LY", "DR PL Delta LY Matrix", "en-US", 2 },
+				        { 14, "Δ LY %", "DR PL Delta LY %", "en-US", 2 },
+				
+				
+				        { 1, "CY", "DR PL CY Matrix", "es-ES", 2 },
+				        { 2, "CY %", "DR PL CY Matrix %", "es-ES", 2 },
+				        { 3, "Ppto", "DR PL Budget Matrix", "es-ES", 3 },
+				        { 4, "Ppto %", "DR PL Budget Matrix %", "es-ES", 3 },
+				        { 5, "Δ Ppto", "DR PL Delta Budget Matrix", "es-ES", 3 },
+				        { 6, "Δ Ppto %", "DR PL Delta Budget %", "es-ES", 3 },
+				        { 7, "Ppto. Adm", "DR PL Budget Adm Matrix", "es-ES", 4 },
+				        { 8, "Ppto Adm %", "DR PL Budget Adm Matrix %", "es-ES", 4 },
+				        { 9, "Δ Ppto Adm", "DR PL Delta Budget Adm Matrix", "es-ES", 4 },
+				        { 10, "Δ Ppto Adm %", "DR PL Delta Budget Adm %", "es-ES", 4 },
+				        { 11, "LY", "DR PL LY Matrix", "es-ES", 2 },
+				        { 12, "LY %", "DR PL LY Matrix %", "es-ES", 2 },
+				        { 13, "Δ LY", "DR PL Delta LY Matrix", "es-ES", 2 },
+				        { 14, "Δ LY %", "DR PL Delta LY %", "es-ES", 2 },
+				
+				
+				        { 1, "CY", "DR PL CY Matrix", "fr-FR", 2 },
+				        { 2, "CY %", "DR PL CY Matrix %", "fr-FR", 2 },
+				        { 3, "Budget", "DR PL Budget Matrix", "fr-FR", 3 },
+				        { 4, "Budget %", "DR PL Budget Matrix %", "fr-FR", 3 },
+				        { 5, "Δ Budget", "DR PL Delta Budget Matrix", "fr-FR", 3 },
+				        { 6, "Δ Budget %", "DR PL Delta Budget %", "fr-FR", 3 },
+				        { 7, "Budget Adm", "DR PL Budget Adm Matrix", "fr-FR", 4 },
+				        { 8, "Budget Adm %", "DR PL Budget Adm Matrix %", "fr-FR", 4 },
+				        { 9, "Δ Budget Adm", "DR PL Delta Budget Adm Matrix", "fr-FR", 4 },
+				        { 10, "Δ Budget Adm %", "DR PL Delta Budget Adm %", "fr-FR", 4 },
+				        { 11, "LY", "DR PL LY Matrix", "fr-FR", 2 },
+				        { 12, "LY %", "DR PL LY Matrix %", "fr-FR", 2 },
+				        { 13, "Δ LY", "DR PL Delta LY Matrix", "fr-FR", 2 },
+				        { 14, "Δ LY %", "DR PL Delta LY %", "fr-FR", 2 }
+				    }
+				)
+				
+				
+				```
+
+	annotation PBI_Id = eafb0095760143098f9b9d50d59b4329
+

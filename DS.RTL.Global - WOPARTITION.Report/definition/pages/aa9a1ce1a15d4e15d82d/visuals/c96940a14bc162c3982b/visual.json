@@ -1,0 +1,232 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "c96940a14bc162c3982b",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 719.705215007896,
+    "width": 1280.302045706195,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "PowerApps_PBI_CV_C29F1DCC_81F5_4973_94AD_0517D44CC06A",
+    "query": {
+      "queryState": {
+        "table": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "DocumentName"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.DocumentName",
+              "nativeQueryRef": "DocumentName"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "PDFBase64"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.PDFBase64",
+              "nativeQueryRef": "PDFBase64"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_LastModified"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_LastModified",
+              "nativeQueryRef": "Document_LastModified"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_LastModified_By"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_LastModified_By",
+              "nativeQueryRef": "Document_LastModified_By"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_Path_Level_1"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_Path_Level_1",
+              "nativeQueryRef": "Document_Path_Level_1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_Path_Level_2"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_Path_Level_2",
+              "nativeQueryRef": "Document_Path_Level_2"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_Path_Level_3"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_Path_Level_3",
+              "nativeQueryRef": "Document_Path_Level_3"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_Path_Level_4"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_Path_Level_4",
+              "nativeQueryRef": "Document_Path_Level_4"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_Path_Level_5"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_Path_Level_5",
+              "nativeQueryRef": "Document_Path_Level_5"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_Approval_By"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_Approval_By",
+              "nativeQueryRef": "Document_Approval_By"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_Approval_Date"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_Approval_Date",
+              "nativeQueryRef": "Document_Approval_Date"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Documentation Display"
+                    }
+                  },
+                  "Property": "Document_Approval_State"
+                }
+              },
+              "queryRef": "View_PBI_GBL_Setup_Documentation_Glossary.Document_Approval_State",
+              "nativeQueryRef": "Document_Approval_State"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Documentation Display"
+                  }
+                },
+                "Property": "DocumentName"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "appId": {
+              "expr": {
+                "Literal": {
+                  "Value": "'/providers/Microsoft.PowerApps/apps/dee42644-0770-42b5-88f7-c7c5d00cd6df'"
+                }
+              }
+            },
+            "someSettings": {
+              "expr": {
+                "Literal": {
+                  "Value": "'1324076386'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

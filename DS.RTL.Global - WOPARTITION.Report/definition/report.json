@@ -1,0 +1,161 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/1.2.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU10",
+      "reportVersionAtImport": "5.59",
+      "type": "SharedResources"
+    }
+  },
+  "layoutOptimization": "None",
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2298ea3b27d073ac3ad6",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PARAMETER_DRPL_FIELDS"
+              }
+            },
+            "Property": "USER_CULTURE"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "7250c2703ab3bee56e97",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG"
+              }
+            },
+            "Property": "USER_CULTURE"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "b54bde374d65de25ad3b",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PARAMETER_DRPL_MATRIX"
+              }
+            },
+            "Property": "USER_CULTURE"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "9d44a5607ba2ba5435ee",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "VIEW_NLR_DIM_PL_WITH_LANG"
+              }
+            },
+            "Property": "USER_CULTURE"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "7ed949f07139c0a67001",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PARAMETER_DRPL_MONTHLY_VIEW"
+              }
+            },
+            "Property": "USER_CULTURE"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "00ce4c90786b450c62c0",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "PBI_TABLE_INDICADORES"
+              }
+            },
+            "Property": "USER_CULTURE"
+          }
+        },
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY24SU10",
+          "path": "BaseThemes/CY24SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true
+  },
+  "slowDataSourceSettings": {
+    "isCrossHighlightingDisabled": false,
+    "isSlicerSelectionsButtonEnabled": false,
+    "isFilterSelectionsButtonEnabled": false,
+    "isFieldWellButtonEnabled": false,
+    "isApplyAllButtonEnabled": false
+  }
+}

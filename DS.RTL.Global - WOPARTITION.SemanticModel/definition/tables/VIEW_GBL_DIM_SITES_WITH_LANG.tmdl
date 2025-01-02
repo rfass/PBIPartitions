@@ -1,0 +1,201 @@
+/// DW: PBI.VIEW_GBL_DIM_SITES_WITH_LANG
+table VIEW_GBL_DIM_SITES_WITH_LANG
+	lineageTag: aa94948d-0aab-43f2-a630-7d35aa111d0e
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.CLIENT_ID
+	column CLIENT_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 8abe4cb6-276f-4d56-8c7b-4bcfff9e0303
+		summarizeBy: count
+		sourceColumn: CLIENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_CODE
+	column SITE_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: c2442cbb-4fe2-407d-95cd-70f308a052dc
+		summarizeBy: none
+		sourceColumn: SITE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_1_CODE
+	column SITE_LEVEL_1_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5331e7ef-8f94-4d45-ab0e-e539a672eb22
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_1_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_2_CODE
+	column SITE_LEVEL_2_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 89ff0ab1-299f-480b-94f6-79dd8473580c
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_2_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_3_CODE
+	column SITE_LEVEL_3_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b2166a7-7014-4d4c-9168-15b3af9f3674
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_3_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_4_CODE
+	column SITE_LEVEL_4_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 921fe021-a8f1-4bc9-b939-18c76580325a
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_4_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_5_CODE
+	column SITE_LEVEL_5_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 7e62735d-f477-4caa-a3a8-d510d43cdb35
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_5_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_1_DESC
+	column SITE_LEVEL_1_DESC
+		dataType: string
+		lineageTag: 102e304a-4527-4d1b-9f99-4a8da225e71c
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_1_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_2_DESC
+	column SITE_LEVEL_2_DESC
+		dataType: string
+		lineageTag: 2187c449-fb3a-474e-adf2-ad7a42bb8f0c
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_2_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_3_DESC
+	column SITE_LEVEL_3_DESC
+		dataType: string
+		lineageTag: f3e71187-d275-45eb-b750-5284a51a4bc0
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_3_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_4_DESC
+	column SITE_LEVEL_4_DESC
+		dataType: string
+		lineageTag: 68b90094-e86f-4a7e-a8f9-1e890490f5d6
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_4_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_5_DESC
+	column SITE_LEVEL_5_DESC
+		dataType: string
+		lineageTag: d0becf7f-fd9f-43fe-9557-d21f1b6ee6f4
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_5_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_DESC
+	column SITE_DESC
+		dataType: string
+		lineageTag: 7b572a6d-9114-49c5-b0a0-b6660bc7debd
+		summarizeBy: none
+		sourceColumn: SITE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_LEVEL_3_DESC_PSEADMRPT
+	column SITE_LEVEL_3_DESC_PSEADMRPT
+		dataType: string
+		lineageTag: e8d46cc3-2a9e-46ef-9070-d0f91a9379bf
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_3_DESC_PSEADMRPT
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_DESC_PSEADMRPT
+	column SITE_DESC_PSEADMRPT
+		dataType: string
+		lineageTag: 7b186d9a-4ca2-4573-8ff1-2b36eea26ae8
+		summarizeBy: none
+		sourceColumn: SITE_DESC_PSEADMRPT
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.ACTIVE
+	column ACTIVE
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e390f5ea-499e-4845-ac89-31efda4320de
+		summarizeBy: none
+		sourceColumn: ACTIVE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.SITE_DISPLAY_ORDER
+	column SITE_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: be8167e4-a2f9-48b4-baa7-f6633c39f1d3
+		summarizeBy: sum
+		sourceColumn: SITE_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.IFC_INCLUDED
+	column IFC_INCLUDED
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4f0aa30c-847d-4bbc-b145-1a7f96bbeae8
+		summarizeBy: none
+		sourceColumn: IFC_INCLUDED
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG.USER_CULTURE
+	column USER_CULTURE
+		dataType: string
+		lineageTag: b09e2951-7b72-45e9-b193-13a613c92eb7
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_DIM_SITES_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_GBL_DIM_SITES_WITH_LANG = Source{[Schema="PBI",Item="VIEW_GBL_DIM_SITES_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_GBL_DIM_SITES_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

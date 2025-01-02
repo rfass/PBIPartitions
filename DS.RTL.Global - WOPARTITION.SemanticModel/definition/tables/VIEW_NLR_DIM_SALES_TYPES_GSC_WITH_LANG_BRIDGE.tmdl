@@ -1,0 +1,34 @@
+table VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG_BRIDGE
+	isHidden
+	lineageTag: 6d7acc7f-b0df-41ee-9d90-1f2d82057159
+
+	column SALES_TYPE_CODE
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		lineageTag: 6aceb79a-5f18-45a3-9bee-b2d536853713
+		summarizeBy: none
+		sourceColumn: SALES_TYPE_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG_BRIDGE = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"SALES_TYPE_CODE"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,230 @@
+/// DW: PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG
+table VIEW_NLR_DIM_PL_IFRS_WITH_LANG
+	lineageTag: 8421525f-9e04-4db7-b79b-6712cab664f8
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_CODE
+	column PL_IFRS_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: ca48f8cf-aa59-48dc-b3c1-98c882f8da43
+		summarizeBy: none
+		sourceColumn: PL_IFRS_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_1_CODE
+	column PL_IFRS_LEVEL_1_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c1a6a9a-de5f-436d-9990-8f26bc198531
+		summarizeBy: sum
+		sourceColumn: PL_IFRS_LEVEL_1_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_2_CODE
+	column PL_IFRS_LEVEL_2_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: c7e04f0f-d0f5-4930-95db-f84b29b4d445
+		summarizeBy: sum
+		sourceColumn: PL_IFRS_LEVEL_2_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_3_CODE
+	column PL_IFRS_LEVEL_3_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 505d6f2d-f387-4d2d-895e-021582e4f0fe
+		summarizeBy: sum
+		sourceColumn: PL_IFRS_LEVEL_3_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_4_CODE
+	column PL_IFRS_LEVEL_4_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 082a0fc7-7a4b-4cd7-bccc-83135902bdad
+		summarizeBy: sum
+		sourceColumn: PL_IFRS_LEVEL_4_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_5_CODE
+	column PL_IFRS_LEVEL_5_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: dbab1ebd-1cba-4992-899e-c3494810a81b
+		summarizeBy: sum
+		sourceColumn: PL_IFRS_LEVEL_5_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_1_DESC
+	column PL_IFRS_LEVEL_1_DESC
+		dataType: string
+		lineageTag: dabd2225-aebe-4894-8080-72d92c55e4e9
+		summarizeBy: none
+		sourceColumn: PL_IFRS_LEVEL_1_DESC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_2_DESC
+	column PL_IFRS_LEVEL_2_DESC
+		dataType: string
+		lineageTag: 8d251879-a115-4ef6-ae40-58a55fa22bf6
+		summarizeBy: none
+		sourceColumn: PL_IFRS_LEVEL_2_DESC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_3_DESC
+	column PL_IFRS_LEVEL_3_DESC
+		dataType: string
+		lineageTag: 69515049-b8fc-45ea-9bba-d5357107a4a4
+		summarizeBy: none
+		sourceColumn: PL_IFRS_LEVEL_3_DESC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_4_DESC
+	column PL_IFRS_LEVEL_4_DESC
+		dataType: string
+		lineageTag: 4636fa88-9998-4eef-b55e-8a944ae4ec15
+		summarizeBy: none
+		sourceColumn: PL_IFRS_LEVEL_4_DESC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_LEVEL_5_DESC
+	column PL_IFRS_LEVEL_5_DESC
+		dataType: string
+		lineageTag: a8d0085c-d0b7-426f-b77b-52a94e155b2e
+		summarizeBy: none
+		sourceColumn: PL_IFRS_LEVEL_5_DESC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_DESC
+	column PL_IFRS_DESC
+		dataType: string
+		lineageTag: c96a2e76-674a-4d6a-b10a-5c441fca2b56
+		summarizeBy: none
+		sourceColumn: PL_IFRS_DESC
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_SIGNAL
+	column PL_IFRS_SIGNAL
+		dataType: int64
+		formatString: 0
+		lineageTag: b6e03d84-7339-4614-ba45-fee76edaadea
+		summarizeBy: sum
+		sourceColumn: PL_IFRS_SIGNAL
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.ISCALCULATED
+	column ISCALCULATED
+		dataType: int64
+		formatString: 0
+		lineageTag: a60846f6-2ecf-428f-9c6f-d19d55e74847
+		summarizeBy: sum
+		sourceColumn: ISCALCULATED
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.CSN_INCLUSION
+	column CSN_INCLUSION
+		dataType: int64
+		formatString: 0
+		lineageTag: 7703c9c9-4194-4892-94b6-60913f9ac32e
+		summarizeBy: sum
+		sourceColumn: CSN_INCLUSION
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.CSN_ACCOUNT_CODE
+	column CSN_ACCOUNT_CODE
+		dataType: string
+		lineageTag: bb305cfd-4424-4229-8a0b-119094abafe6
+		summarizeBy: none
+		sourceColumn: CSN_ACCOUNT_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.PL_IFRS_DISPLAY_ORDER
+	column PL_IFRS_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 132b5bb5-920c-46f9-9422-65aa1cb52684
+		summarizeBy: sum
+		sourceColumn: PL_IFRS_DISPLAY_ORDER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_IFRS_WITH_LANG.USER_CULTURE
+	column USER_CULTURE
+		dataType: string
+		lineageTag: d5d024ba-8e14-42ed-93a6-45ed95b53fac
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_PL_IFRS_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_NLR_DIM_PL_IFRS_SCG_WITH_LANG = Source{[Schema="PBI",Item="VIEW_NLR_DIM_PL_IFRS_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_NLR_DIM_PL_IFRS_SCG_WITH_LANG
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+
