@@ -1,0 +1,61 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "VIEW_GBL_DIM_SITES_WITH_LANG",
+          "nodeLineageTag": "432b8927-c0cd-4a8b-843d-ba56f90ca92a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 38
+          },
+          "nodeIndex": "VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG",
+          "nodeLineageTag": "f9061b0c-ba7b-494f-8daf-bbbcd8b34bfb",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 0
+          },
+          "nodeIndex": "VIEW_NLR_FACT_BI_TRANS_PL_BUDGET",
+          "nodeLineageTag": "2f931f47-cabe-44b4-bc75-4aa93fc9b3b5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

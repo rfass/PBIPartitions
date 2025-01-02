@@ -1,0 +1,66 @@
+table VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG
+	lineageTag: f9061b0c-ba7b-494f-8daf-bbbcd8b34bfb
+
+	column VALUE_TYPE_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: b798899c-6d50-46a9-9073-42425ca97ab1
+		summarizeBy: sum
+		sourceColumn: VALUE_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALUE_TYPE_DESC
+		dataType: string
+		lineageTag: c8bba740-3014-4a19-ab1f-04b88ae8caf0
+		summarizeBy: none
+		sourceColumn: VALUE_TYPE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALUE_TYPE_DESC2
+		dataType: string
+		lineageTag: d54aeb01-3c44-4e67-986b-05cdacc5dfd6
+		summarizeBy: none
+		sourceColumn: VALUE_TYPE_DESC2
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALUE_TYPE_DESC3
+		dataType: string
+		lineageTag: 9b21cb5b-b7aa-4a62-9580-2f324505e187
+		summarizeBy: none
+		sourceColumn: VALUE_TYPE_DESC3
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALUE_TYPE_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: ed43315a-5157-4912-9fe5-59030e4ce3c7
+		summarizeBy: sum
+		sourceColumn: VALUE_TYPE_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_CULTURE
+		dataType: string
+		lineageTag: ea757ff8-70e4-4407-9175-91228322c604
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Server, "BI_GSC"),
+				    PBI_VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG = Source{[Schema="PBI",Item="VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

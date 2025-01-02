@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "087867d65432b1a89a7d",
+  "position": {
+    "x": 31.343283582089551,
+    "y": 51.940298507462686,
+    "z": 0,
+    "height": 280.29850746268659,
+    "width": 280.29850746268659,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VIEW_NLR_FACT_BI_TRANS_PL_BUDGET"
+                    }
+                  },
+                  "Property": "CLIENT_ID"
+                }
+              },
+              "queryRef": "VIEW_NLR_FACT_BI_TRANS_PL_BUDGET.CLIENT_ID",
+              "nativeQueryRef": "CLIENT_ID",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "VIEW_NLR_FACT_BI_TRANS_PL_BUDGET"
+                        }
+                      },
+                      "Property": "CLIENT_ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(VIEW_NLR_FACT_BI_TRANS_PL_BUDGET.CLIENT_ID)",
+              "nativeQueryRef": "Count of CLIENT_ID"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
