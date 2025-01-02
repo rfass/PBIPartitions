@@ -1449,13 +1449,13 @@ table MEASURE_TABLE
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	/// DW:PBI.MEASURE_TABLE._MEASURE_TABLE
-	column _MEASURE_TABLE
+	column MEASURE_TABLE
 		dataType: string
 		isHidden
 		isAvailableInMdx: false
 		lineageTag: e9d76a32-9504-47f5-bd5d-c979f624c30d
 		summarizeBy: none
-		sourceColumn: _MEASURE_TABLE
+		sourceColumn: MEASURE_TABLE
 
 		changedProperty = IsHidden
 
@@ -1465,10 +1465,9 @@ table MEASURE_TABLE
 		mode: import
 		source =
 				let
-				    Source = "",
-				    #"Renamed Columns" = Table.RenameColumns(Source,{{"MEASURE_TABLE", "_MEASURE_TABLE"}})
+				    Source = "MEASURE_TABLE"
 				in
-				    #"Renamed Columns"
+				    Source
 
 	annotation PBI_NavigationStepName = Navigation
 

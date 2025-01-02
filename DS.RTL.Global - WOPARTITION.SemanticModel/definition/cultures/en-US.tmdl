@@ -946,7 +946,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "MEASURE_TABLE",
-			          "ConceptualProperty": "_MEASURE_TABLE"
+			          "ConceptualProperty": "MEASURE_TABLE"
 			        }
 			      },
 			      "State": "Generated",
@@ -3110,7 +3110,9 @@ cultureInfo en-US
 			            "Weight": 0.99
 			          }
 			        },
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "approval state": {
 			            "State": "Generated",
@@ -43602,19 +43604,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "simbol_daily_update_NLR"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "DAILY UPDATE": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    }
 			  },
 			  "Relationships": {
