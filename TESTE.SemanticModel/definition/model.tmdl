@@ -12,7 +12,7 @@ annotation PBIDesktopVersion = 2.138.1452.0 (24.11)
 
 annotation PBI_QueryOrder = ["VIEW_NLR_FACT_BI_TRANS_PL_BUDGET","VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG","VIEW_GBL_DIM_SITES_WITH_LANG","Database","Server"]
 
-annotation PBI_ProTooling = ["DevMode"]
+annotation PBI_ProTooling = ["DevMode","TMDL-Extension"]
 
 ref table VIEW_NLR_FACT_BI_TRANS_PL_BUDGET
 ref table VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG
