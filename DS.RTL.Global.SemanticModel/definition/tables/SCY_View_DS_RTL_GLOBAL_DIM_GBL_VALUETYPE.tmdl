@@ -1,0 +1,50 @@
+/// DW: PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_VALUETYPE
+table SCY_View_DS_RTL_GLOBAL_DIM_GBL_VALUETYPE
+	isHidden
+	lineageTag: 3d0cfc19-0ed0-4b23-a804-aff1d94272b3
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_VALUETYPE.O365_USER
+	column O365_USER
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: bd7e3e7c-6627-4b38-86ff-13203bd998fa
+		summarizeBy: none
+		sourceColumn: O365_USER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_VALUETYPE.VALUE_TYPE_CODE
+	column VALUE_TYPE_CODE
+		dataType: decimal
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: c0b7d433-9211-4d34-a759-f926546952d0
+		summarizeBy: none
+		sourceColumn: VALUE_TYPE_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition SCY_View_DS_RTL_GLOBAL_DIM_GBL_VALUETYPE = m
+		mode: import
+		queryGroup: Security
+		source =
+				let
+				    Source = Sql.Database(Server, Security_DB),
+				    SCY_View_DS.RTL.GLOBAL_DIM_GBL.VALUETYPE = Source{[Schema="SCY",Item="View_DS.RTL.GLOBAL_DIM_GBL.VALUETYPE"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(SCY_View_DS.RTL.GLOBAL_DIM_GBL.VALUETYPE,{{"VALUE_TYPE_CODE", type number}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

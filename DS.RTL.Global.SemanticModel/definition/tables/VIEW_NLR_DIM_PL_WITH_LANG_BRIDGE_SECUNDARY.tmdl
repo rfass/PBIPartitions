@@ -1,0 +1,31 @@
+table VIEW_NLR_DIM_PL_WITH_LANG_BRIDGE_SECUNDARY
+	isHidden
+	lineageTag: e04a567b-5710-4f4e-830d-fc185ea0d8f3
+
+	column PL_CODE
+		dataType: string
+		isHidden
+		isKey
+		lineageTag: 35f690ce-a5c2-4aad-a083-ddf3e6c8c6fc
+		summarizeBy: none
+		sourceColumn: PL_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_PL_WITH_LANG_BRIDGE_SECUNDARY = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = VIEW_NLR_DIM_PL_WITH_LANG_BRIDGE
+				in
+				    Source
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

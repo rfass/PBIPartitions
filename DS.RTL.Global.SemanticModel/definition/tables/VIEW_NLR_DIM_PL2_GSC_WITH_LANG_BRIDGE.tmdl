@@ -1,0 +1,36 @@
+/// DW: PBI.VIEW_NLR_DIM_PL2_GSC_WITH_LANG_BRIDGE
+table VIEW_NLR_DIM_PL2_GSC_WITH_LANG_BRIDGE
+	isHidden
+	lineageTag: 54aee42e-02bb-4050-86b6-556fef442453
+
+	/// DW:PBI.VIEW_NLR_DIM_PL2_GSC_WITH_LANG_BRIDGE.PL_CODE
+	column PL_CODE
+		dataType: string
+		isHidden
+		isKey
+		isAvailableInMdx: false
+		lineageTag: fd68bef5-543f-4599-b526-3df778ff800e
+		summarizeBy: none
+		sourceColumn: PL_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_PL2_GSC_WITH_LANG_BRIDGE = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = VIEW_NLR_DIM_PL2_GSC_WITH_LANG,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"PL_CODE"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

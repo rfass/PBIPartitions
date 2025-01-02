@@ -1,0 +1,288 @@
+/// DW: PBI.VIEW_NLR_DIM_PL_WITH_LANG
+table VIEW_NLR_DIM_PL_WITH_LANG
+	lineageTag: eef19c93-dfbc-487e-a1f8-b73aa72c2904
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_CODE
+	column PL_CODE
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: f4f91f98-8ae8-4cc4-88fd-ea35d4725cef
+		summarizeBy: none
+		sourceColumn: PL_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_1_CODE
+	column PL_LEVEL_1_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 9d0dafb0-f086-4877-b4db-85ba65bf0414
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_1_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_2_CODE
+	column PL_LEVEL_2_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: e0343762-e6f0-40cf-8faa-c7b64cef77ae
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_2_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_3_CODE
+	column PL_LEVEL_3_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: d088eca3-9bc1-4b7d-97a8-a2ae73265ade
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_3_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_4_CODE
+	column PL_LEVEL_4_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: d9ef2312-616c-4829-ba80-5b895457e5b9
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_4_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_5_CODE
+	column PL_LEVEL_5_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 504ad5eb-a84d-49e7-b7e9-ef43934cb739
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_5_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_1_DESC
+	column PL_LEVEL_1_DESC
+		dataType: string
+		lineageTag: d42ab4fa-2299-4a16-8d47-91bc60daa5b4
+		summarizeBy: none
+		sourceColumn: PL_LEVEL_1_DESC
+		sortByColumn: PL_LEVEL_1_DISPLAY_ORDER
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_2_DESC
+	column PL_LEVEL_2_DESC
+		dataType: string
+		lineageTag: ba3399b6-0814-44a1-83c1-d4f61f627064
+		summarizeBy: none
+		sourceColumn: PL_LEVEL_2_DESC
+		sortByColumn: PL_LEVEL_2_DISPLAY_ORDER
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_3_DESC
+	column PL_LEVEL_3_DESC
+		dataType: string
+		lineageTag: 7539e8b2-7cfa-4c62-8df6-cdf03212dff4
+		summarizeBy: none
+		sourceColumn: PL_LEVEL_3_DESC
+		sortByColumn: PL_LEVEL_3_DISPLAY_ORDER
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_4_DESC
+	column PL_LEVEL_4_DESC
+		dataType: string
+		lineageTag: 6ac08993-c193-4c2c-8cee-95692109fda0
+		summarizeBy: none
+		sourceColumn: PL_LEVEL_4_DESC
+		sortByColumn: PL_LEVEL_4_DISPLAY_ORDER
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_5_DESC
+	column PL_LEVEL_5_DESC
+		dataType: string
+		lineageTag: 04edcac1-8ac8-4591-83a5-bb79492ef7d6
+		summarizeBy: none
+		sourceColumn: PL_LEVEL_5_DESC
+		sortByColumn: PL_LEVEL_5_DISPLAY_ORDER
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_DESC
+	column PL_DESC
+		dataType: string
+		lineageTag: fef6c7d7-b2a8-4d32-99fc-469ec7ced1f4
+		summarizeBy: none
+		sourceColumn: PL_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.ISCALCULATED
+	column ISCALCULATED
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ad465c4-70ef-42ba-aa65-d8181bd9c478
+		summarizeBy: sum
+		sourceColumn: ISCALCULATED
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.QTY_FLAG
+	column QTY_FLAG
+		dataType: int64
+		formatString: 0
+		lineageTag: 34c7c0ce-22d0-42e9-b547-9405949a1f9d
+		summarizeBy: sum
+		sourceColumn: QTY_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.SALES_FLAG
+	column SALES_FLAG
+		dataType: int64
+		formatString: 0
+		lineageTag: 78f68502-9be3-4625-8c01-53a5c2bc08e2
+		summarizeBy: sum
+		sourceColumn: SALES_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.VALUE_MEASURE
+	column VALUE_MEASURE
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 13f91e48-9ebc-4ed4-8421-66024270875b
+		summarizeBy: none
+		sourceColumn: VALUE_MEASURE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.POLARITY
+	column POLARITY
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d6760c7d-186e-4f88-9772-ef4f6d9da83d
+		summarizeBy: none
+		sourceColumn: POLARITY
+
+		annotation SummarizationSetBy = User
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_DISPLAY_ORDER
+	column PL_DISPLAY_ORDER
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: e3f4d74d-6ecf-446d-b7e0-d920e7dcbd46
+		summarizeBy: sum
+		sourceColumn: PL_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.SALES_TYPE_CODE_DEFAULT
+	column SALES_TYPE_CODE_DEFAULT
+		dataType: int64
+		formatString: 0
+		lineageTag: 7320d420-e37b-45f7-a393-b9ab90829e21
+		summarizeBy: sum
+		sourceColumn: SALES_TYPE_CODE_DEFAULT
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.INFO_FLAG
+	column INFO_FLAG
+		dataType: int64
+		formatString: 0
+		lineageTag: e3a5913f-4419-486f-beb7-257f7988f2cc
+		summarizeBy: sum
+		sourceColumn: INFO_FLAG
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.PL_LEVEL_1_DISPLAY_ORDER
+	column PL_LEVEL_1_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: c1164ac5-02ec-4186-97a9-5b6d58b06e23
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_1_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_PL_WITH_LANG.USER_CULTURE
+	column USER_CULTURE
+		dataType: string
+		lineageTag: a6f31da4-c87c-443a-9392-86957de3c318
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PL_LEVEL_2_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 867d5019-b549-4332-b9e7-15ec7933381f
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_2_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column PL_LEVEL_3_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: ca58dbda-19f9-443b-a869-7609627ddf48
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_3_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column PL_LEVEL_4_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d4a07c4-6e23-476d-bce1-fa02051caa1e
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_4_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column PL_LEVEL_5_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: f0f06b18-7449-44fc-8f01-8f2c8058443a
+		summarizeBy: sum
+		sourceColumn: PL_LEVEL_5_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_PL_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_NLR_DIM_PL_GSC_WITH_LANG = Source{[Schema="PBI",Item="VIEW_NLR_DIM_PL_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_NLR_DIM_PL_GSC_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,47 @@
+/// DW: PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_COMPANY
+table SCY_View_DS_RTL_GLOBAL_DIM_GBL_COMPANY
+	isHidden
+	lineageTag: eeb25c1b-38af-4c89-8bab-7c067dcc5901
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_COMPANY.O365_USER
+	column O365_USER
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: e1c4e7dd-5555-4c7f-b3e9-20b010064df1
+		summarizeBy: none
+		sourceColumn: O365_USER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_COMPANY.NLR_CODE
+	column NLR_CODE
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: b9e5c61a-ecf3-43f7-bc3a-61c1e1e5707a
+		summarizeBy: none
+		sourceColumn: NLR_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SCY_View_DS_RTL_GLOBAL_DIM_GBL_COMPANY = m
+		mode: import
+		queryGroup: Security
+		source =
+				let
+				    Source = Sql.Database(Server, Security_DB),
+				    SCY_View_DS.RTL.GLOBAL_DIM_GBL.COMPANY = Source{[Schema="SCY",Item="View_DS.RTL.GLOBAL_DIM_GBL.COMPANY"]}[Data]
+				in
+				    SCY_View_DS.RTL.GLOBAL_DIM_GBL.COMPANY
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

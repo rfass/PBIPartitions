@@ -1,0 +1,60 @@
+/// DW: PBI.VIEW_NLR_DIM_TIES_WITH_LANG
+table VIEW_NLR_DIM_TIES_WITH_LANG
+	lineageTag: 945e586b-58c6-4dc7-a844-5da4068a7297
+
+	/// DW:PBI.VIEW_NLR_DIM_TIES_WITH_LANG.TIE_CODE
+	column TIE_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: feb0dd0d-c412-4708-8e1c-213c179903ee
+		summarizeBy: none
+		sourceColumn: TIE_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_TIES_WITH_LANG.TIE_DESC
+	column TIE_DESC
+		dataType: string
+		lineageTag: 705a7dee-9afa-4e4b-8839-145bcbb49f5f
+		summarizeBy: none
+		sourceColumn: TIE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_TIES_WITH_LANG.TIE_DISPLAY_ORDER
+	column TIE_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 97edb8ad-aab3-4e29-a12f-a1b0a90fb051
+		summarizeBy: sum
+		sourceColumn: TIE_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_TIES_WITH_LANG.USER_CULTURE
+	column USER_CULTURE
+		dataType: string
+		lineageTag: fa64c763-c0c8-4806-8796-a2b302628c08
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_TIES_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_NLR_DIM_TIES_GSC_WITH_LANG = Source{[Schema="PBI",Item="VIEW_NLR_DIM_TIES_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_NLR_DIM_TIES_GSC_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

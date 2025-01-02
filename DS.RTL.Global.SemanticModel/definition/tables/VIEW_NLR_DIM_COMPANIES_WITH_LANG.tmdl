@@ -1,0 +1,229 @@
+/// DW: PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG
+table VIEW_NLR_DIM_COMPANIES_WITH_LANG
+	lineageTag: 495747be-a5a0-4821-a1c6-fb01d2c16def
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.CLIENT_ID
+	column CLIENT_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 10e43ce1-33d6-408a-add0-c0e85637c6e0
+		summarizeBy: count
+		sourceColumn: CLIENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.ENVIRONMENT
+	column ENVIRONMENT
+		dataType: int64
+		formatString: 0
+		lineageTag: c991689b-e86a-461c-9452-b21983c5852c
+		summarizeBy: sum
+		sourceColumn: ENVIRONMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.NLR_CODE
+	column NLR_CODE
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: b4770feb-4f64-4740-9a27-7eca648fc654
+		summarizeBy: none
+		sourceColumn: NLR_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_LEVEL_1_CODE
+	column COMPANY_LEVEL_1_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 14621ace-118e-4473-9fc5-9e8cd0c70c5a
+		summarizeBy: sum
+		sourceColumn: COMPANY_LEVEL_1_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_LEVEL_2_CODE
+	column COMPANY_LEVEL_2_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cf74f6a-1e67-4e0b-a823-9c17474f4589
+		summarizeBy: sum
+		sourceColumn: COMPANY_LEVEL_2_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_LEVEL_3_CODE
+	column COMPANY_LEVEL_3_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d57636d-eeee-4bc6-bdf4-396ca80cee10
+		summarizeBy: sum
+		sourceColumn: COMPANY_LEVEL_3_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_LEVEL_4_CODE
+	column COMPANY_LEVEL_4_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: b92ac32c-bf1e-4bab-9a51-30c09e6d45c0
+		summarizeBy: sum
+		sourceColumn: COMPANY_LEVEL_4_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_LEVEL_1_DESC
+	column COMPANY_LEVEL_1_DESC
+		dataType: string
+		lineageTag: 51d2c45b-4af4-4364-a56e-fdd5f907d71b
+		summarizeBy: none
+		sourceColumn: COMPANY_LEVEL_1_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_LEVEL_2_DESC
+	column COMPANY_LEVEL_2_DESC
+		dataType: string
+		lineageTag: 3b196095-f715-4b7a-a28f-79a7f02292aa
+		summarizeBy: none
+		sourceColumn: COMPANY_LEVEL_2_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_LEVEL_3_DESC
+	column COMPANY_LEVEL_3_DESC
+		dataType: string
+		lineageTag: 9a86780e-54fc-458b-b377-ff7ce452aa1f
+		summarizeBy: none
+		sourceColumn: COMPANY_LEVEL_3_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_LEVEL_4_DESC
+	column COMPANY_LEVEL_4_DESC
+		dataType: string
+		lineageTag: 58ee0c2c-9870-4879-9887-a5ac5cba82fc
+		summarizeBy: none
+		sourceColumn: COMPANY_LEVEL_4_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.OPERATIONAL_COMPANY
+	column OPERATIONAL_COMPANY
+		dataType: int64
+		formatString: 0
+		lineageTag: 86817007-4125-4e23-93d7-c2a6aa025f7e
+		summarizeBy: sum
+		sourceColumn: OPERATIONAL_COMPANY
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.CSN_COMPANY_CODE
+	column CSN_COMPANY_CODE
+		dataType: string
+		lineageTag: d8af0b24-3338-4283-9109-6393f91ca8a0
+		summarizeBy: none
+		sourceColumn: CSN_COMPANY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.VAT_NUMBER
+	column VAT_NUMBER
+		dataType: string
+		lineageTag: 43392c8f-96c7-4548-924f-0219ca004bbf
+		summarizeBy: none
+		sourceColumn: VAT_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COUNTRY_CODE
+	column COUNTRY_CODE
+		dataType: string
+		lineageTag: 0cb537bc-ab68-4602-a11d-21769462c998
+		summarizeBy: none
+		sourceColumn: COUNTRY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.CHARTACCOUNT_COUNTRY_CODE
+	column CHARTACCOUNT_COUNTRY_CODE
+		dataType: string
+		lineageTag: bbad366a-7f27-4666-b119-ba40ca9765d1
+		summarizeBy: none
+		sourceColumn: CHARTACCOUNT_COUNTRY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.CURRENCIES_INCLUDED
+	column CURRENCIES_INCLUDED
+		dataType: string
+		lineageTag: 51c1fc3c-f09e-4536-93a8-75ec6607a26d
+		summarizeBy: none
+		sourceColumn: CURRENCIES_INCLUDED
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.FRANCHISE_CODE_BOOKDEFAULT
+	column FRANCHISE_CODE_BOOKDEFAULT
+		dataType: int64
+		formatString: 0
+		lineageTag: 64e1c42e-72e1-4893-9cd0-a9fe19d87014
+		summarizeBy: sum
+		sourceColumn: FRANCHISE_CODE_BOOKDEFAULT
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.ACTIVE
+	column ACTIVE
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 211b1d64-9dd4-4dc9-852c-6a0258ba70d1
+		summarizeBy: none
+		sourceColumn: ACTIVE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.COMPANY_DISPLAY_ORDER
+	column COMPANY_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 49d3a21c-736b-4145-8033-d7e3786b9de5
+		summarizeBy: sum
+		sourceColumn: COMPANY_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.IFC_INCLUDED
+	column IFC_INCLUDED
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 25dc7109-1b98-4b03-9413-d490c0c3f074
+		summarizeBy: none
+		sourceColumn: IFC_INCLUDED
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG.USER_CULTURE
+	column USER_CULTURE
+		dataType: string
+		lineageTag: 5643127b-0250-48c2-b3d1-dd3312b810a4
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_COMPANIES_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_NLR_DIM_COMPANIES_WITH_LANG = Source{[Schema="PBI",Item="VIEW_NLR_DIM_COMPANIES_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_NLR_DIM_COMPANIES_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

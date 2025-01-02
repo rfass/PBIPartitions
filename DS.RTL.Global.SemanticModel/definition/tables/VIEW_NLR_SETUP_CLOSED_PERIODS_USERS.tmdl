@@ -1,0 +1,164 @@
+/// DW: PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS
+table VIEW_NLR_SETUP_CLOSED_PERIODS_USERS
+	isHidden
+	lineageTag: 01bd1b3e-1a52-467b-bdce-9a3db056509c
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.Client_Id
+	column Client_Id
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 46d22748-71af-4e9d-89eb-dc279cab08cc
+		summarizeBy: none
+		sourceColumn: Client_Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.Record_Date
+	column Record_Date
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		isAvailableInMdx: false
+		lineageTag: 70677582-bf89-4bcb-94fe-98e079443fad
+		summarizeBy: none
+		sourceColumn: Record_Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.NLR_ClosedPeriod
+	column NLR_ClosedPeriod
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: e5e03fbb-c4ca-4dca-99ee-ec3df4d22535
+		summarizeBy: none
+		sourceColumn: NLR_ClosedPeriod
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.NLR_ClosedYear
+	column NLR_ClosedYear
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 785dee56-55b7-47a8-ae2f-eaee1b4e9dd3
+		summarizeBy: sum
+		sourceColumn: NLR_ClosedYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.NLR_ClosedPeriod_int
+	column NLR_ClosedPeriod_int
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: f31382c4-bcc9-4e1f-89cb-7d3a4541f873
+		summarizeBy: sum
+		sourceColumn: NLR_ClosedPeriod_int
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.BDTFuturePeriods_Included
+	column BDTFuturePeriods_Included
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: d48a55cf-60ef-4473-a4ef-317aebac2294
+		summarizeBy: sum
+		sourceColumn: BDTFuturePeriods_Included
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.Histy_Date
+	column Histy_Date
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 09c194c1-b8d4-441f-ada4-af223595c178
+		summarizeBy: sum
+		sourceColumn: Histy_Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.NLR_Prior_Year
+	column NLR_Prior_Year
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 1f864441-f4a1-4a18-abfb-2ae89bd52a5f
+		summarizeBy: sum
+		sourceColumn: NLR_Prior_Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.NLR_ClosedDate
+	column NLR_ClosedDate
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		isAvailableInMdx: false
+		lineageTag: 4eacbb73-ec2c-4692-9fa9-869e7f3d661b
+		summarizeBy: none
+		sourceColumn: NLR_ClosedDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// DW:PBI.VIEW_NLR_SETUP_CLOSED_PERIODS_USERS.NLR_Prior_Year_Included_EOY
+	column NLR_Prior_Year_Included_EOY
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 1ef9dea9-f7f6-470e-a8db-1f4b67ac55a3
+		summarizeBy: sum
+		sourceColumn: NLR_Prior_Year_Included_EOY
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_SETUP_CLOSED_PERIODS_USERS = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, Database),
+				    PBI_VIEW_NLR_SETUP_CLOSED_PERIODS_USERS = Source{[Schema="PBI",Item="VIEW_NLR_SETUP_CLOSED_PERIODS_USERS"]}[Data]
+				in
+				    PBI_VIEW_NLR_SETUP_CLOSED_PERIODS_USERS
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

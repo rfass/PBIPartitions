@@ -1,0 +1,32 @@
+/// DW: PBI.VIEW_GBL_DIM_SITES_WITH_LANG_BRIDGE
+table VIEW_GBL_DIM_SITES_WITH_LANG_BRIDGE
+	lineageTag: 11dd4f22-519f-48d1-a826-7cf7b3604111
+
+	/// DW:PBI.VIEW_GBL_DIM_SITES_WITH_LANG_BRIDGE.SITE_CODE
+	column SITE_CODE
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: fe89bc0c-26f1-4820-9136-e1e8d2138b36
+		summarizeBy: none
+		sourceColumn: SITE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_DIM_SITES_WITH_LANG_BRIDGE = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = VIEW_GBL_DIM_SITES_WITH_LANG,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"SITE_CODE"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

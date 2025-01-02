@@ -1,0 +1,32 @@
+/// DW: PBI.VIEW_GBL_DIM_FRANCHISES_WITH_LANG_BRIDGE
+table VIEW_GBL_DIM_FRANCHISES_WITH_LANG_BRIDGE
+	lineageTag: df0eb7a2-3d44-4dfd-8a23-03afe15b997d
+
+	/// DW:PBI.VIEW_GBL_DIM_FRANCHISES_WITH_LANG_BRIDGE.FRANCHISE_CODE
+	column FRANCHISE_CODE
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 638c5112-bae5-454a-adc2-ae081ffe0f45
+		summarizeBy: none
+		sourceColumn: FRANCHISE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_DIM_FRANCHISES_WITH_LANG_BRIDGE = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = VIEW_GBL_DIM_FRANCHISES_WITH_LANG,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"FRANCHISE_CODE"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

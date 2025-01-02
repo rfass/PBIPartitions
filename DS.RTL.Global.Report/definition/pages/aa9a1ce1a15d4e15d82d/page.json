@@ -1,0 +1,188 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.2.0/schema.json",
+  "name": "aa9a1ce1a15d4e15d82d",
+  "displayName": "Documentation",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "19bfc3a05d286093d890",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Documentation Display"
+              }
+            },
+            "Property": "Document_Name"
+          }
+        },
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "Documentation Display",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "Document_Name"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Alterações ao Orçamento CA 2025'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "93ffe2cc28aa5e554501",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Documentation Display"
+              }
+            },
+            "Property": "Document_Id"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "df80a174d60e604e042b",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Documentation Display"
+              }
+            },
+            "Property": "Id"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "1d9f42c6ac1b4603e283",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Documentation Display"
+              }
+            },
+            "Property": "Document_Path_Level_1"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "167b473e1e50059057e3",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Documentation Display"
+              }
+            },
+            "Property": "Document_Path_Level_2"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "b0ac437c90864462e1bc",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Documentation Display"
+              }
+            },
+            "Property": "Document_Path_Level_3"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "ffaaefa813ee07c790be",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Documentation Display"
+              }
+            },
+            "Property": "Document_Path_Level_4"
+          }
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "4f9bcd903de234a6c069",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Documentation Display"
+              }
+            },
+            "Property": "Document_Path_Level_5"
+          }
+        },
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "240L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

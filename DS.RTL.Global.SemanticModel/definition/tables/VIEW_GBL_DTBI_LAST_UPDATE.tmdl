@@ -1,0 +1,100 @@
+table VIEW_GBL_DTBI_LAST_UPDATE
+	lineageTag: 288501ee-321d-4a3e-a303-10ccfb3b4601
+
+	column CLIENT_ID
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4df59476-b087-4af5-85e4-18f7afd8480b
+		summarizeBy: none
+		sourceColumn: CLIENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENT_NAME
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(10)
+		lineageTag: e20b2b12-3523-4cc5-bf31-aca453a3256c
+		summarizeBy: none
+		sourceColumn: CLIENT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENT_DESCRIPTION
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(50)
+		lineageTag: 2b702637-8e6d-442e-9e3f-61a199dbdea1
+		summarizeBy: none
+		sourceColumn: CLIENT_DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column AREA
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(50)
+		lineageTag: 0d01cf16-3cab-47a5-be1b-73efa2606e35
+		summarizeBy: none
+		sourceColumn: AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column AREA_DISPLAY
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(50)
+		lineageTag: 31ac9c74-8696-4b52-bc2d-b1a779330a28
+		summarizeBy: none
+		sourceColumn: AREA_DISPLAY
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_UPDATE_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime
+		lineageTag: 01b67be1-904f-45a2-861a-d8a4fc205936
+		summarizeBy: none
+		sourceColumn: LAST_UPDATE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_REFRESH_DATE
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime
+		lineageTag: 38be27ee-a4bf-4a25-9b44-cebdd1dfdadf
+		summarizeBy: none
+		sourceColumn: LAST_REFRESH_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAILY_UPDATED
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 49096d55-50f7-4152-b3fc-8829b3e726d8
+		summarizeBy: sum
+		sourceColumn: DAILY_UPDATED
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_DTBI_LAST_UPDATE = m
+		mode: directQuery
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseCalendar, [CreateNavigationProperties=false]),
+				    PBI_VIEW_GBL_DTBI_LAST_UPDATE = Source{[Schema="PBI",Item="VIEW_GBL_DTBI_LAST_UPDATE"]}[Data]
+				in
+				    PBI_VIEW_GBL_DTBI_LAST_UPDATE
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

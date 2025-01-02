@@ -1,0 +1,192 @@
+/// DW: PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG
+table VIEW_NLR_DIM_BL_IFRS_WITH_LANG
+	lineageTag: fbc319fb-f0c2-4142-a118-916a0efba065
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_CODE
+	column BL_IFRS_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: dea3b9d8-6c39-405f-8d36-d6cb01e0a266
+		summarizeBy: none
+		sourceColumn: BL_IFRS_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_1_CODE
+	column BL_IFRS_LEVEL_1_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 35bd8895-c633-4a62-9ac1-27744f333e0f
+		summarizeBy: sum
+		sourceColumn: BL_IFRS_LEVEL_1_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_2_CODE
+	column BL_IFRS_LEVEL_2_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: ab54b9ca-04c3-4c4c-b72e-46e917cca63d
+		summarizeBy: sum
+		sourceColumn: BL_IFRS_LEVEL_2_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_3_CODE
+	column BL_IFRS_LEVEL_3_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 77d872db-bba7-44d4-9abd-c86adc088413
+		summarizeBy: sum
+		sourceColumn: BL_IFRS_LEVEL_3_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_4_CODE
+	column BL_IFRS_LEVEL_4_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 11852740-1e91-4243-9651-801c488c2d19
+		summarizeBy: sum
+		sourceColumn: BL_IFRS_LEVEL_4_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_5_CODE
+	column BL_IFRS_LEVEL_5_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 1542d077-87d8-4c69-b07b-2bab661b50c9
+		summarizeBy: sum
+		sourceColumn: BL_IFRS_LEVEL_5_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_1_DESC
+	column BL_IFRS_LEVEL_1_DESC
+		dataType: string
+		lineageTag: 2e3c0e7d-f55d-4290-8911-c999cbd536eb
+		summarizeBy: none
+		sourceColumn: BL_IFRS_LEVEL_1_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_2_DESC
+	column BL_IFRS_LEVEL_2_DESC
+		dataType: string
+		lineageTag: 6bce6630-ea06-4c5e-9c6e-8dd9601db2d9
+		summarizeBy: none
+		sourceColumn: BL_IFRS_LEVEL_2_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_3_DESC
+	column BL_IFRS_LEVEL_3_DESC
+		dataType: string
+		lineageTag: fea8ea1b-2c35-4ea9-a322-b989873584e5
+		summarizeBy: none
+		sourceColumn: BL_IFRS_LEVEL_3_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_4_DESC
+	column BL_IFRS_LEVEL_4_DESC
+		dataType: string
+		lineageTag: fc29e715-7411-4336-8897-fd128e33317a
+		summarizeBy: none
+		sourceColumn: BL_IFRS_LEVEL_4_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_LEVEL_5_DESC
+	column BL_IFRS_LEVEL_5_DESC
+		dataType: string
+		lineageTag: 4d96c554-c7ad-430c-b32d-0553b204e4ce
+		summarizeBy: none
+		sourceColumn: BL_IFRS_LEVEL_5_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_DESC
+	column BL_IFRS_DESC
+		dataType: string
+		lineageTag: 1e63bb59-f71c-4c00-a430-32af1ef39954
+		summarizeBy: none
+		sourceColumn: BL_IFRS_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_SIGNAL
+	column BL_IFRS_SIGNAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 27cd5726-0270-4393-a302-ce07a18c4f43
+		summarizeBy: sum
+		sourceColumn: BL_IFRS_SIGNAL
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.ISCALCULATED
+	column ISCALCULATED
+		dataType: int64
+		formatString: 0
+		lineageTag: c6353c03-304c-4307-8dc6-80751dbaedf9
+		summarizeBy: sum
+		sourceColumn: ISCALCULATED
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.CSN_INCLUSION
+	column CSN_INCLUSION
+		dataType: int64
+		formatString: 0
+		lineageTag: 6dd40622-7208-46be-8b95-49718626e41f
+		summarizeBy: sum
+		sourceColumn: CSN_INCLUSION
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.CSN_ACCOUNT_CODE
+	column CSN_ACCOUNT_CODE
+		dataType: string
+		lineageTag: 3510d069-7ecb-40ab-b104-9f509b8f2744
+		summarizeBy: none
+		sourceColumn: CSN_ACCOUNT_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.BL_IFRS_DISPLAY_ORDER
+	column BL_IFRS_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f2bdc30-421e-4c0e-aef6-63b727e0fcd5
+		summarizeBy: sum
+		sourceColumn: BL_IFRS_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.VIEW_NLR_DIM_BL_IFRS_WITH_LANG.USER_CULTURE
+	column USER_CULTURE
+		dataType: string
+		lineageTag: 59fa73f8-d855-489b-9a29-fd0015c4a765
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_BL_IFRS_WITH_LANG = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_NLR_DIM_BL_IFRS_SCG_WITH_LANG = Source{[Schema="PBI",Item="VIEW_NLR_DIM_BL_IFRS_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_NLR_DIM_BL_IFRS_SCG_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

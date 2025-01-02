@@ -1,0 +1,86 @@
+table PBI_TABLE_TITLES
+	lineageTag: 846d540f-fe80-4251-9b64-05ab72705266
+
+	column Id
+		formatString: 0
+		lineageTag: d0ee7572-ee99-40c6-9a5d-4a66b4c5b439
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [Id]
+
+		annotation SummarizationSetBy = Automatic
+
+	column PT-PT
+		lineageTag: 1a521ab5-88c2-473b-a42f-7915d458116e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [PT-PT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EN-US
+		lineageTag: df2e8a83-0bfe-492b-a650-3c1537f9721a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EN-US]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ES-ES
+		lineageTag: 9fd085bb-089b-44b4-8816-5d90d668cbf3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ES-ES]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FR-FR
+		lineageTag: 6acad824-d308-4344-b206-765f0b99693a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FR-FR]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PBI_TABLE_TITLES = calculated
+		mode: import
+		source =
+				
+				
+				DATATABLE(
+				    "Id", INTEGER,
+				    "PT-PT", STRING,
+				    "EN-US", STRING,
+				    "ES-ES", STRING,
+				    "FR-FR", STRING,
+				    {
+				        { 1, "Demonstração de Resultados", "Income Statements", "Estado de Resultados", "Compte de Résultat"},
+				        { 2, "Moeda", "Currency", "Moneda", "Monnaie"},
+				        { 3, "Período", "Period", "Periodo", "Période"},
+				        { 4, "Marca", "Franchise", "Franquicia", "Franchise"},
+				        { 5, "Atividade", "Activity", "Actividad", "Activité"},
+				        { 6, "Empresa", "Company", "Empresa", "Entreprise"},
+				        { 7, "Lucro e Perda", "Profit & Loss", "Ganancias y Pérdidas", "Profit et Perte"},
+				        { 8, "Protótipo PBI", "PBI Prototype", "Prototipo PBI", "Prototype PBI"},
+				        { 9, "Página", "Page", "Página", "Page"},
+				        { 10, "Tipo Centro de Custo", "Cost Center Type", "Tipo Centro de Costo", "Type de Centre de Coût"},
+				        { 11, "Ano", "Year", "Año", "Année"},
+				        { 12, "Mês", "Month", "Mes", "Mois"},
+				        { 13, "Orçamento", "Budget", "Presupuesto", "Budget"},
+				        { 14, "Vendas", "Sales", "Ventas", "Ventes"},
+				        { 15, "Selecione os Indicadores", "Select Indicators", "Seleccionar indicadores", "Sélectionnez les indicateurs"},
+				        { 16, "Local", "Site", "Sitio", "Site"},
+				        { 17, "Canal de Vendas", "Sales Channel", "Canal de Ventas", "Canal de Vente"},
+				        { 18, "Real vs. Orçamento", "Actual vs. Budget", "Real vs. Presupuesto", "Réel vs. Budget"},
+				        { 19, "Margem Comercial", "Sales Margin", "Margen Comercial", "Marge Commerciale"},
+				        { 20, "RAI", "EBT", "RAI", "RAI"},
+				        { 21, "Últimas Atualizações", "Last Refreshes", "Últimas Actualizaciones", "Dernières Actualisations"},
+				        { 22, "Período Fechado", "Closed Period", "Periodo Cerrado", "Période Fermée"},
+				        { 23, "Ano/Mês", "Year/Month", "Año/Mes", "Année/Mois"},
+				        { 24, "Demonstração de Resultados | Indicador/Mês", "Income Statements | Indicator/Month", "Estado de Resultados | Indicador/Mes", "Compte de Résultat | Indicateur/Mois"},
+				        { 25, "Demonstração de Resultados | Mês/Indicador", "Income Statements | Month/Indicator", "Estado de Resultados | Mes/Indicador", "Compte de Résultat | Mois/Indicateur"}
+				    }
+				)
+
+	annotation PBI_Id = 90063041ea024a18a03c8c4bf1d5407b
+

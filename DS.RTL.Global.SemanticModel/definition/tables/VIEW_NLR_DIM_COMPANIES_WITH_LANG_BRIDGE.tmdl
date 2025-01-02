@@ -1,0 +1,31 @@
+/// DW: PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG_BRIDGE
+table VIEW_NLR_DIM_COMPANIES_WITH_LANG_BRIDGE
+	lineageTag: 9aba84d1-afdc-462a-9f1e-b8a10b1e8637
+
+	/// DW:PBI.VIEW_NLR_DIM_COMPANIES_WITH_LANG_BRIDGE.NLR_CODE
+	column NLR_CODE
+		dataType: string
+		isHidden
+		isKey
+		isAvailableInMdx: false
+		lineageTag: a6cc821d-b209-4db8-b706-c6aefacb37ee
+		summarizeBy: none
+		sourceColumn: NLR_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_COMPANIES_WITH_LANG_BRIDGE = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = VIEW_NLR_DIM_COMPANIES_WITH_LANG,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"NLR_CODE"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

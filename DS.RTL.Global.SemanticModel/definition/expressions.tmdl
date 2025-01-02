@@ -1,0 +1,45 @@
+/// Nome do servidor onde está a base de dados.
+expression Server = "SCSQLSRV3.sc.pt\PRD" meta [IsParameterQuery=true, List={"SCSQLSRV3.sc.pt\PRD"}, DefaultValue="SCSQLSRV3.sc.pt\PRD", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 714c8395-e8f7-47eb-bef8-44153eedb604
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+
+/// Nome da base de dados proveniente da informação.
+expression Database = "BI_CRP" meta [IsParameterQuery=true, List={"Audit", "BI_ACC", "BI_AFR", "BI_CA", "BI_CAER", "BI_CAER_History", "BI_CBUS", "BI_CBUS_History", "BI_CHR", "BI_CHR_History", "BI_COL", "BI_CRP", "BI_DEMO", "BI_DTR", "BI_DTR_History", "BI_DW_History", "BI_Finance", "BI_FNG", "BI_FNG_History", "BI_GRN", "BI_GRN_History", "BI_GSC", "BI_GSC_History", "BI_HR", "BI_IBE", "BI_OTR", "BI_OTR_History", "BI_RCG", "BI_SCAA", "BI_Security", "BI_Security_CAER", "BI_Security_CBUS", "BI_Security_CHR", "BI_Security_DTR", "BI_Security_FNG", "BI_Security_HR", "BI_Security_OTR", "BI_Security_RCG", "BI_Security_TCAP", "BI_TCAP", "BI_TCAP_History", "Budget_AFR", "Budget_CA", "Budget_COL", "Budget_CRP", "Budget_DEMO", "Budget_IBE", "Budget_SCAA", "ContentStore", "DMS_AFR_01", "DMS_AFR_03", "DMS_AFR_05", "DMS_AFR_06", "DMS_AFR_07", "DMS_AFR_08", "DMS_AFR_09", "DMS_AFR_10", "DMS_AFR_11", "DMS_CA_01", "DMS_CAER_01", "DMS_CBUS_01", "DMS_CHR_01", "DMS_COL_01", "DMS_CRP_04", "DMS_DTR_01", "DMS_DTR_02", "DMS_DTR_04", "DMS_FNG_01", "DMS_GRN_01", "DMS_HR_01", "DMS_IBE_02", "DMS_IBE_03", "DMS_IBE_04", "DMS_OTR_01", "DMS_OTR_02", "DMS_OTR_03", "DMS_OTR_04", "DMS_OTR_05", "DMS_OTR_06", "DMS_OTR_07", "DMS_RCG_01", "DMS_SCAA_01", "DMS_SCG_01", "jiradb", "POC_Mobile", "POC_Security", "Portal_Budget", "SQLDBA", "SSISDB"}, DefaultValue="BI_GSC", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: b2d45287-1e77-4847-87d4-da1718f8e65b
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+
+/// Nome da base de dados onde foi criada a view Calendar.
+expression DatabaseCalendar = "BI_SCG" meta [IsParameterQuery=true, List={"BI_SCG"}, DefaultValue="BI_SCG", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 713ca94f-01b4-44b4-a83d-6080bbac2b95
+	queryGroup: Parameters
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+/// Nome da base de dados onde consta a segurança.
+expression Security_DB = "BI_Security" meta [IsParameterQuery=true, List={"BI_Security", "BI_Security_CAER", "BI_Security_CBUS", "BI_Security_CHR", "BI_Security_DTR", "BI_Security_FNG", "BI_Security_GRN", "BI_Security_HR", "BI_Security_OTR", "BI_Security_RCG", "BI_Security_TCAP"}, DefaultValue="BI_Security", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 800ec3e2-4577-4159-b955-54c60bafdc90
+	queryGroup: Parameters
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+
+/// Nome da base de dados onde foram criadas as views Dimensionais.
+expression DatabaseDim = "BI_GSC" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 01270686-825c-46dd-9f86-865542fe86aa
+	queryGroup: Parameters
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

@@ -1,0 +1,73 @@
+table PARAMETER_DRPL_MONTHLY_VIEW
+	lineageTag: 1800616c-9d0d-49d4-8146-39354f8fe2fb
+
+	column PARAMETER_MONTHLY_VIEW
+		lineageTag: f6f73a80-9b44-4985-8370-c089a58cb7fd
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'PARAMETER_MONTHLY_VIEW Order'
+
+		relatedColumnDetails
+			groupByColumn: 'PARAMETER_MONTHLY_VIEW Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PARAMETER_MONTHLY_VIEW Fields'
+		isHidden
+		lineageTag: 778c98be-1de2-463a-af2c-2f0f756cc69c
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'PARAMETER_MONTHLY_VIEW Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PARAMETER_MONTHLY_VIEW Order'
+		isHidden
+		formatString: 0
+		lineageTag: c5ac7624-9d4b-449b-bdb0-35638911c9c5
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_CULTURE
+		lineageTag: a28f5557-4738-45ec-ae7d-a984a0f6a763
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PARAMETER_DRPL_MONTHLY_VIEW = calculated
+		mode: import
+		source = ```
+				{
+				    //(" ", NAMEOF('PBI_TABLE_INDICADORES teste'[Indicador]), 0, "pt-PT"),
+				    ("Ano", NAMEOF(VIEW_GBL_DIM_SHORT_CALENDAR[YEAR]), 1, "pt-PT"),
+				    ("Mês", NAMEOF(VIEW_GBL_DIM_SHORT_CALENDAR[MONTH_DESC]), 2, "pt-PT"),
+				
+				    //(" ", NAMEOF('PBI_TABLE_INDICADORES teste'[Indicador]), 0, "pt-PT"),
+				    ("Year", NAMEOF(VIEW_GBL_DIM_SHORT_CALENDAR[YEAR]), 1, "en-US"),
+				    ("Month", NAMEOF(VIEW_GBL_DIM_SHORT_CALENDAR[MONTH_DESC]), 2, "en-US"),
+				
+				    //(" ", NAMEOF('PBI_TABLE_INDICADORES teste'[Indicador]), 0, "pt-PT"),
+				    ("Año", NAMEOF(VIEW_GBL_DIM_SHORT_CALENDAR[YEAR]), 1, "es-ES"),
+				    ("Mes", NAMEOF(VIEW_GBL_DIM_SHORT_CALENDAR[MONTH_DESC]), 2, "es-ES"),
+				
+				    //(" ", NAMEOF('PBI_TABLE_INDICADORES teste'[Indicador]), 0, "pt-PT"),
+				    ("Année", NAMEOF(VIEW_GBL_DIM_SHORT_CALENDAR[YEAR]), 1, "fr-FR"),
+				    ("Mois", NAMEOF(VIEW_GBL_DIM_SHORT_CALENDAR[MONTH_DESC]), 2, "fr-FR")
+				    
+				}
+				
+				
+				
+				```
+
+	annotation PBI_Id = 8f96c3545a4247bd9e27c4f8daffd0b2
+

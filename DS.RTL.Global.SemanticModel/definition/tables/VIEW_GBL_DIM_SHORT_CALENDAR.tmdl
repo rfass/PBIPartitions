@@ -1,0 +1,115 @@
+table VIEW_GBL_DIM_SHORT_CALENDAR
+	lineageTag: 18c604c0-a6b3-4ec7-835d-334a2860fff7
+	dataCategory: Time
+
+	column DATE
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: a0e3fb1a-f1a8-4e9f-b6de-fb12afd61cf5
+		summarizeBy: none
+		sourceColumn: DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YEAR
+		dataType: int64
+		formatString: 0
+		lineageTag: 638b1d2e-7584-405d-acf6-1568bbfcafe4
+		summarizeBy: sum
+		sourceColumn: YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH_DESC
+		dataType: string
+		lineageTag: 2629bc42-2b2b-4c18-8e70-0d38e37d4b97
+		summarizeBy: none
+		sourceColumn: MONTH_DESC
+		sortByColumn: MONTH
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAY
+		dataType: int64
+		formatString: 0
+		lineageTag: bb9dfe9d-7a8e-4337-a835-5a15815c3763
+		summarizeBy: sum
+		sourceColumn: DAY
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR_MONTH
+		dataType: string
+		lineageTag: 26ce2598-f4ab-45f0-ad26-2c9c4e163ad1
+		summarizeBy: none
+		sourceColumn: YEAR_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR_MONTH_SHORT_DESC
+		dataType: string
+		lineageTag: d25ab695-cb62-407f-a2a1-38c66bc09355
+		summarizeBy: none
+		sourceColumn: YEAR_MONTH_SHORT_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e417d21-0a97-4327-b861-f7d06a283923
+		summarizeBy: sum
+		sourceColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column WORKING_DAY
+		dataType: int64
+		formatString: 0
+		lineageTag: af09f11b-fb56-4d12-a8d1-b847dbd32e68
+		summarizeBy: sum
+		sourceColumn: WORKING_DAY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENT_YEAR
+		dataType: string
+		lineageTag: 57c695c1-886c-44ae-8609-2dd89d578f61
+		summarizeBy: none
+		sourceColumn: CURRENT_YEAR
+		sortByColumn: YEAR
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENT_MONTH
+		dataType: string
+		lineageTag: f437e5b9-825c-4a46-8dd1-8a98e201ac78
+		summarizeBy: none
+		sourceColumn: CURRENT_MONTH
+		sortByColumn: MONTH
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_DIM_SHORT_CALENDAR = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseCalendar),
+				    PBI_VIEW_GBL_DIM_SHORT_CALENDAR = Source{[Schema="PBI",Item="VIEW_GBL_DIM_SHORT_CALENDAR"]}[Data]
+				in
+				    PBI_VIEW_GBL_DIM_SHORT_CALENDAR
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

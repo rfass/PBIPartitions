@@ -1,0 +1,69 @@
+table VIEW_GBL_SETUP_CLIENTS
+	lineageTag: a7a9498c-a67e-4a61-b745-c0ab95161336
+
+	column CLIENT_ID
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		lineageTag: 4e63a2cd-7355-4e07-a6fb-042b7d0aa7b9
+		summarizeBy: none
+		sourceColumn: CLIENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLIENT_NAME
+		dataType: string
+		lineageTag: 1f8d15fc-ae9b-4b47-931a-8b3f21690d69
+		summarizeBy: none
+		sourceColumn: CLIENT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPTION
+		dataType: string
+		lineageTag: 184b1a09-da51-4614-b200-a1cca7f5bc54
+		summarizeBy: none
+		sourceColumn: DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPTION_MOBILE
+		dataType: string
+		lineageTag: 3ff28509-70df-49c1-bdac-bd959e9d9349
+		summarizeBy: none
+		sourceColumn: DESCRIPTION_MOBILE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ce7b0e7-0565-4bf7-a23a-7a78a0b642d7
+		summarizeBy: sum
+		sourceColumn: DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column BI_DATABASE
+		dataType: string
+		lineageTag: 61d9781d-1209-4c13-8186-801ce6dcf3b5
+		summarizeBy: none
+		sourceColumn: BI_DATABASE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_SETUP_CLIENTS = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = Sql.Database(Server, DatabaseDim),
+				    PBI_VIEW_GBL_SETUP_CLIENTS = Source{[Schema="PBI",Item="VIEW_GBL_SETUP_CLIENTS"]}[Data]
+				in
+				    PBI_VIEW_GBL_SETUP_CLIENTS
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

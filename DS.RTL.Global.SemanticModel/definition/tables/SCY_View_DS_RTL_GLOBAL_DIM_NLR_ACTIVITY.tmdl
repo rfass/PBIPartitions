@@ -1,0 +1,50 @@
+/// DW: PBI.SCY_View_DS_RTL_GLOBAL_DIM_NLR_ACTIVITY
+table SCY_View_DS_RTL_GLOBAL_DIM_NLR_ACTIVITY
+	isHidden
+	lineageTag: 9dcb613a-528f-4819-9b98-6cd5c50368c5
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_NLR_ACTIVITY.O365_USER
+	column O365_USER
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 73b0e1fe-ae63-4aaf-af53-c2cc8b834601
+		summarizeBy: none
+		sourceColumn: O365_USER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_NLR_ACTIVITY.ACTIVITY_CODE
+	column ACTIVITY_CODE
+		dataType: decimal
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 150b039a-f623-4960-8ef8-5ddd3e58c282
+		summarizeBy: none
+		sourceColumn: ACTIVITY_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition SCY_View_DS_RTL_GLOBAL_DIM_NLR_ACTIVITY = m
+		mode: import
+		queryGroup: Security
+		source =
+				let
+				    Source = Sql.Database(Server, Security_DB),
+				    SCY_View_DS.RTL.GLOBAL_DIM_NLR.ACTIVITY = Source{[Schema="SCY",Item="View_DS.RTL.GLOBAL_DIM_NLR.ACTIVITY"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(SCY_View_DS.RTL.GLOBAL_DIM_NLR.ACTIVITY,{{"ACTIVITY_CODE", type number}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

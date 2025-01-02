@@ -1,0 +1,37 @@
+/// DW: PBI.VIEW_NLR_DIM_TIES_WITH_LANG_BRIDGE
+table VIEW_NLR_DIM_TIES_WITH_LANG_BRIDGE
+	isHidden
+	lineageTag: be4cbedd-9c8e-4e48-a43b-618ce8e97ede
+
+	/// DW:PBI.VIEW_NLR_DIM_TIES_WITH_LANG_BRIDGE.TIE_CODE
+	column TIE_CODE
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 67d40d3f-8f8c-421e-8600-9b48bbeb4231
+		summarizeBy: none
+		sourceColumn: TIE_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_NLR_DIM_TIES_WITH_LANG_BRIDGE = m
+		mode: import
+		queryGroup: Dimensions
+		source =
+				let
+				    Source = VIEW_NLR_DIM_TIES_WITH_LANG,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"TIE_CODE"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns")
+				in
+				    #"Removed Duplicates"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

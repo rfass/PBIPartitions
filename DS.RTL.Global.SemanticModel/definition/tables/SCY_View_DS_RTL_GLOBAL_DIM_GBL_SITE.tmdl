@@ -1,0 +1,49 @@
+/// DW: PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_SITE
+table SCY_View_DS_RTL_GLOBAL_DIM_GBL_SITE
+	isHidden
+	lineageTag: 4f5ab439-1f9a-4e11-bc19-616ece370b4f
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_SITE.O365_USER
+	column O365_USER
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 0f01ed8e-cf1c-4b95-a909-668d45302086
+		summarizeBy: none
+		sourceColumn: O365_USER
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.SCY_View_DS_RTL_GLOBAL_DIM_GBL_SITE.SITE_CODE
+	column SITE_CODE
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: bae66618-987a-4120-a5b8-b79f37ac3c54
+		summarizeBy: none
+		sourceColumn: SITE_CODE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SCY_View_DS_RTL_GLOBAL_DIM_GBL_SITE = m
+		mode: import
+		queryGroup: Security
+		source =
+				let
+				    Source = Sql.Database(Server, Security_DB),
+				    SCY_View_DS.RTL.GLOBAL_DIM_GBL.SITE = Source{[Schema="SCY",Item="View_DS.RTL.GLOBAL_DIM_GBL.SITE"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(SCY_View_DS.RTL.GLOBAL_DIM_GBL.SITE,{{"SITE_CODE", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,48 @@
+table CALCGROUP_ACCUMULATED_PERIOD
+	lineageTag: 8fceed0f-437a-4d12-9429-c9f0d3918d73
+
+	calculationGroup
+		precedence: 3
+
+		calculationItem Month = ```
+				
+				 
+				VAR __ClosedPeriod = MAX('VIEW_NLR_SETUP_CLOSED_PERIODS_USERS'[NLR_ClosedDate])
+				RETURN
+				 
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    FILTER(VIEW_GBL_DIM_SHORT_CALENDAR, VIEW_GBL_DIM_SHORT_CALENDAR[DATE] <= __ClosedPeriod)
+				)
+				```
+
+		calculationItem Year = ```
+				
+				 
+				VAR __ClosedPeriod = MAX('VIEW_NLR_SETUP_CLOSED_PERIODS_USERS'[NLR_ClosedDate])
+				RETURN
+				 
+				CALCULATE(
+				    TOTALYTD(SELECTEDMEASURE(), VIEW_GBL_DIM_SHORT_CALENDAR[DATE]),
+				    FILTER(VIEW_GBL_DIM_SHORT_CALENDAR, VIEW_GBL_DIM_SHORT_CALENDAR[DATE] <= __ClosedPeriod)
+				)
+				```
+
+	column Period
+		dataType: string
+		lineageTag: 8962c8e1-1c04-4361-a450-ba68169e46be
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinal
+		dataType: int64
+		formatString: 0
+		lineageTag: be9a3a93-5925-4b46-a9ee-44a86e41e41a
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

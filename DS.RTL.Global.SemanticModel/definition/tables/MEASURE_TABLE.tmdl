@@ -1,0 +1,1478 @@
+/// DW: PBI.MEASURE_TABLE
+table MEASURE_TABLE
+	excludeFromModelRefresh
+	lineageTag: 29f54252-5cb0-4e2e-9a0c-e4efcb059658
+
+	measure 'DR PL CY Matrix (EUR)' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL CY (EUR)],
+			    CALCULATE(
+			       [DR PL CY (EUR)],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 7be8a209-54e5-48f8-84dd-848727fceaec
+
+		changedProperty = IsHidden
+
+	measure 'DR PL CY %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL CY],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL CY Matrix],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\CY
+		lineageTag: c519bac4-f2e4-4df1-be65-7c6a6affd0e1
+
+	measure 'DR PL Budget %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Budget],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Budget Matrix],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Budget
+		lineageTag: 39fa8748-eb26-4696-b89e-7dc875321fff
+
+	/// Calcula a diferença entre o DR Valor e o DR Valor Budget.
+	measure 'DR PL Delta Budget Matrix' =
+			
+			
+			[DR PL CY Matrix] - [DR PL Budget Matrix]
+		formatString: #,0
+		displayFolder: DR PL\Delta
+		lineageTag: 3d84b9c8-47c4-45ed-82af-13b483e66975
+
+	/// Calcula o desvio percentual do N/N Budget em relação ao DR Valor Budget total para o código de nível 1 16.
+	measure 'DR PL Delta Budget %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Delta Budget],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Delta Budget Matrix],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Delta
+		lineageTag: b5c10e5c-dd3b-4ed0-be2e-7dcc2423fc3f
+
+	/// Calula o DR Valor para o mesmo período do ano anterior.
+	measure 'DR PL LY Matrix' =
+			
+			CALCULATE(
+			    [DR PL CY Matrix],
+			    SAMEPERIODLASTYEAR(VIEW_GBL_DIM_SHORT_CALENDAR[DATE])
+			)
+		formatString: #,0
+		displayFolder: DR PL\LY
+		lineageTag: f4573314-96e1-4f7d-bf6a-588ecdd4754e
+
+	measure 'DR PL LY %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL LY],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL LY Matrix],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\LY
+		lineageTag: 9aac7cce-3abe-434d-9e31-13f1cb207d16
+
+	/// Calcula a diferença entre o DR Valor atual e o DR Valor do ano anterior.
+	measure 'DR PL Delta LY Matrix' =
+			
+			
+			[DR PL CY Matrix] - [DR PL LY Matrix]
+		formatString: #,0
+		displayFolder: DR PL\Delta
+		lineageTag: de4a2278-eabe-4f7b-9189-6c6ae477c457
+
+	/// Calcula o desvio percentual do N/N-1 em relação ao DR Valor Budget total para o código de nível 1 16.
+	measure 'DR PL Delta LY %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Delta LY],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Delta LY Matrix],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Delta
+		lineageTag: 5a18adce-c9bb-4981-882d-0e862db00c25
+
+	measure 'DR PL LY Matrix (EUR)' =
+			
+			CALCULATE(
+			    [DR PL CY Matrix (EUR)],
+			    SAMEPERIODLASTYEAR(VIEW_GBL_DIM_SHORT_CALENDAR[DATE])
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 22666449-cc7e-415f-99fc-409bd561aa97
+
+		changedProperty = IsHidden
+
+	measure 'DR PL CY (EUR) %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL CY (EUR)],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL CY Matrix (EUR)],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 47278e09-4a9f-4224-a6b8-cf58e811c671
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Budget Matrix (EUR)' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL Budget (EUR)],
+			    CALCULATE(
+			        [DR PL Budget (EUR)],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 30e1c740-a4bb-47fe-8143-60afc3d0d4c8
+
+		changedProperty = IsHidden
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DR PL Budget (EUR) %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Budget (EUR)],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Budget Matrix (EUR)],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: e90ea02e-6fe9-4f28-a22d-77f92e341ab8
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta Budget Matrix (EUR)' =
+			
+			
+			[DR PL CY Matrix (EUR)] - [DR PL Budget Matrix (EUR)]
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 1d2756b4-9a3c-4fe1-8a91-b0f3cbdbf83c
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta LY Matrix (EUR)' =
+			
+			
+			[DR PL CY Matrix (EUR)] - [DR PL LY Matrix (EUR)]
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 8a3b45de-50ad-4ada-924b-f1589600f8a0
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta Budget (EUR) %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Delta Budget (EUR)],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Delta Budget Matrix (EUR)],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: cbc6a9e1-6460-41b1-8890-dc0ec4a09f80
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta LY (EUR) %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Delta LY (EUR)],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Delta LY Matrix (EUR)],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: bb3704e9-688e-4b2f-bd8f-d411eada60a5
+
+		changedProperty = IsHidden
+
+	measure 'DR PL LY (EUR) %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL LY (EUR)],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL LY Matrix (EUR)],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: c47ae139-117b-4166-a005-85d5985c9763
+
+		changedProperty = IsHidden
+
+	measure 'Visual Title' =
+			
+			
+			SWITCH(
+			    LEFT(USERCULTURE(), 2),
+			    "pt", SELECTEDVALUE(PBI_TABLE_TITLES[pt-PT]),
+			    "en", SELECTEDVALUE(PBI_TABLE_TITLES[en-US]),
+			    "es", SELECTEDVALUE(PBI_TABLE_TITLES[es-ES]),
+			    "fr", SELECTEDVALUE(PBI_TABLE_TITLES[fr-FR]),
+			    SELECTEDVALUE(PBI_TABLE_TITLES[en-US])
+			)
+		formatString: #,0
+		displayFolder: UI
+		lineageTag: f0309be0-a988-45de-bcd9-ff4df1570ed9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DR PL Budget Matrix' =
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL Budget],
+			    CALCULATE(
+			        [DR PL Budget],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0
+		displayFolder: DR PL\Budget
+		lineageTag: 40181499-2913-4954-9d76-5aa959a9999c
+
+	measure 'DR PL CY Matrix' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL CY],
+			    CALCULATE(
+			        [DR PL CY],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0
+		displayFolder: DR PL\CY
+		lineageTag: bc133c3e-fdf5-47ec-be26-591de25a7227
+
+	measure 'DR PL CY Matrix %' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL CY %],
+			    CALCULATE(
+			        [DR PL CY %],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\CY
+		lineageTag: 968eab2e-a288-4f88-8c51-8119b7100bd9
+
+	measure 'DR PL CY Matrix (EUR) %' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL CY (EUR) %],
+			    CALCULATE(
+			        [DR PL CY (EUR) %],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: cad90b07-22d4-4d49-bf83-08663c3add38
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Budget' = ```
+			
+			CALCULATE(
+			    SUM(VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE]),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = 1,
+			    VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG[VALUE_TYPE_CODE] =3
+			)
+			    
+			-
+			CALCULATE(
+			    SUM(VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE]),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = -1,
+			    VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG[VALUE_TYPE_CODE] =3
+			)
+			```
+		formatString: #,0
+		displayFolder: DR PL\Budget
+		lineageTag: 4de9e9ae-65df-4630-8bc6-9a6d258dd794
+
+	measure 'DR PL Budget Matrix %' =
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL Budget %],
+			    CALCULATE(
+			        [DR PL Budget %],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Budget
+		lineageTag: af43fd58-29cb-43f9-bd5e-733803f554c5
+
+	measure 'DR PL CY' =
+			
+			CALCULATE(
+			    SUM(VIEW_NLR_FACT_BI_TRANS_PL[PBI_VALUE]),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = 1
+			)
+			-
+			CALCULATE(
+			    SUM(VIEW_NLR_FACT_BI_TRANS_PL[PBI_VALUE]),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = -1
+			)
+		formatString: #,0
+		displayFolder: DR PL\CY
+		lineageTag: 53d7fce1-cf17-410d-876a-b1b1ce3c5b69
+
+	measure 'DR PL LY Matrix %' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL LY %],
+			    CALCULATE(
+			        [DR PL LY %],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\LY
+		lineageTag: f4d9586a-8765-434d-b7b7-ace3b7db38f5
+
+	measure 'DR PL Budget Matrix (EUR) %' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL Budget (EUR) %],
+			    CALCULATE(
+			        [DR PL Budget (EUR) %],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 66adab5d-bd7a-4868-89c6-9e7c9175cb40
+
+		changedProperty = IsHidden
+
+	measure 'DR PL LY Matrix (EUR) %' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL LY (EUR) %],
+			    CALCULATE(
+			        [DR PL LY (EUR) %],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 77062155-1570-48c3-a7b3-f2809bbd3b8e
+
+		changedProperty = IsHidden
+
+	measure 'DR PL LY' =
+			
+			CALCULATE(
+			    [DR PL CY],
+			    SAMEPERIODLASTYEAR(VIEW_GBL_DIM_SHORT_CALENDAR[DATE])
+			)
+		formatString: #,0
+		displayFolder: DR PL\LY
+		lineageTag: 42c41cbe-221b-464f-8d80-4edb7d2a1ace
+
+	measure 'DR PL Budget (EUR)' =
+			
+			CALCULATE(
+			    SUMX(
+			        VIEW_NLR_FACT_BI_TRANS_PL_BUDGET,
+			        DIVIDE(
+			            VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE],
+			            VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[CURRENCY_RATE]
+			        )
+			    ),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = 1,
+			    VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG[VALUE_TYPE_CODE] = 3
+			)
+			-
+			CALCULATE(
+			    SUMX(
+			        VIEW_NLR_FACT_BI_TRANS_PL_BUDGET,
+			        DIVIDE(
+			            VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE],
+			            VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[CURRENCY_RATE]
+			        )
+			    ),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = -1,
+			    VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG[VALUE_TYPE_CODE] = 3
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 6b8c39dc-8809-4f5b-913e-8c4d0a6c2439
+
+		changedProperty = IsHidden
+
+	measure 'DR PL LY (EUR)' =
+			
+			CALCULATE(
+			    [DR PL CY (EUR)],
+			    SAMEPERIODLASTYEAR(VIEW_GBL_DIM_SHORT_CALENDAR[DATE])
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: d3727b4b-3f20-4dd0-9cb2-88883194dde4
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta Budget' =
+			
+			
+			[DR PL CY] - [DR PL Budget]
+		formatString: #,0
+		displayFolder: DR PL\Delta
+		lineageTag: 18f4aad7-692c-401b-ae17-2b43ef8aac99
+
+	measure 'DR PL Delta Budget (EUR)' =
+			
+			
+			[DR PL CY (EUR)] - [DR PL Budget (EUR)]
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 288c2a6f-6cb0-4880-8b49-3c3ed3ad53a2
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta LY' =
+			
+			
+			[DR PL CY] - [DR PL LY]
+		formatString: #,0
+		displayFolder: DR PL\Delta
+		lineageTag: d93e48f1-3d01-4e44-a015-357def94a1d7
+
+	measure 'DR PL Delta LY (EUR)' =
+			
+			
+			[DR PL CY (EUR)] - [DR PL LY (EUR)]
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 09353b91-e5a3-4348-ab7f-8ce8be941bd5
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Budget Adm Matrix' =
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL Budget Adm],
+			    CALCULATE(
+			        [DR PL Budget Adm],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0
+		displayFolder: DR PL\Budget
+		lineageTag: 066faf00-a2f0-44da-8a26-4cad719052d8
+
+	measure 'DR PL Budget Adm' =
+			
+			CALCULATE(
+			    SUM(VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE]),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = 1,
+			    VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG[VALUE_TYPE_CODE] = 4
+			    )
+			-
+			CALCULATE(
+			    SUM(VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE]),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = -1,
+			    VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG[VALUE_TYPE_CODE] = 4
+			    )
+		formatString: #,0
+		displayFolder: DR PL\Budget
+		lineageTag: 3f40569e-add4-445e-ae7b-5772fa520552
+
+	measure 'DR PL Budget Adm %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Budget Adm],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Budget Adm Matrix],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Budget
+		lineageTag: be0fb7ae-53b0-445c-89bf-02f0d4c518cb
+
+	measure 'DR PL Budget Adm Matrix %' =
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL Budget Adm %],
+			    CALCULATE(
+			        [DR PL Budget Adm %],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Budget
+		lineageTag: 60c1584e-227d-4cc0-abf4-a33362d888b1
+
+	measure 'DR PL Delta Budget Adm Matrix' =
+			
+			
+			[DR PL CY Matrix] - [DR PL Budget Adm Matrix]
+		formatString: #,0
+		displayFolder: DR PL\Delta
+		lineageTag: 045322b5-2dba-4668-861f-117fe225ad3d
+
+	measure 'DR PL Delta Budget Adm' =
+			
+			
+			[DR PL CY] - [DR PL Budget Adm]
+		formatString: #,0
+		displayFolder: DR PL\Delta
+		lineageTag: 3d84df45-fd62-44de-972c-baed15d327b8
+
+	measure 'DR PL Delta Budget Adm %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Delta Budget Adm],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Delta Budget Adm Matrix],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Delta
+		lineageTag: 2e14cab4-736d-4ea1-afd1-d3a25c2d36c9
+
+	measure 'DR PL Budget Adm Matrix (EUR)' =
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL Budget Adm (EUR)],
+			    CALCULATE(
+			        [DR PL Budget Adm (EUR)],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 06e0ea71-b0b3-4d9e-8d2e-366ced3e8465
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Budget Adm (EUR)' =
+			
+			CALCULATE(
+			    SUMX(
+			        VIEW_NLR_FACT_BI_TRANS_PL_BUDGET,
+			        DIVIDE(
+			            VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE],
+			            VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[CURRENCY_RATE]
+			        )
+			    ),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = 1,
+			    VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG[VALUE_TYPE_CODE] = 4
+			)
+			-
+			CALCULATE(
+			    SUMX(
+			        VIEW_NLR_FACT_BI_TRANS_PL_BUDGET,
+			        DIVIDE(
+			            VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE],
+			            VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[CURRENCY_RATE]
+			        )
+			    ),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = -1,
+			    VIEW_GBL_DIM_VALUE_TYPES_ALL_WITH_LANG[VALUE_TYPE_CODE] = 4
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: a1edbd41-af72-402a-84fc-cc0f90e628a9
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Budget Adm (EUR) %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Budget Adm (EUR)],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Budget Adm Matrix (EUR)],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 4fec9e3c-0692-4f6b-b4dd-ece3266516d3
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta Budget Adm Matrix (EUR)' =
+			
+			
+			[DR PL CY Matrix (EUR)] - [DR PL Budget Adm Matrix (EUR)]
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 99ae6c93-1a0f-443e-b619-ec2b75d9e5ec
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta Budget Adm (EUR) %' =
+			
+			
+			VAR _ValorVendas =
+			    CALCULATE(
+			        [DR PL Delta Budget Adm (EUR)],
+			        ALL(VIEW_NLR_DIM_PL_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_ACTIVITIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_FRANCHISES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COMPANIES_WITH_LANG),
+			        ALL(VIEW_GBL_DIM_SITES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_COSTCENTRE_TYPES_WITH_LANG),
+			        ALL(VIEW_NLR_DIM_SALES_TYPES_GSC_WITH_LANG),
+			        VIEW_NLR_DIM_PL_WITH_LANG[PL_LEVEL_1_CODE] = 16
+			    )
+			
+			
+			RETURN
+			
+			DIVIDE([DR PL Delta Budget Adm Matrix (EUR)],_ValorVendas)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 32ba9113-ced9-41a9-bb53-e072ebe54e96
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Delta Budget Adm (EUR)' =
+			
+			
+			[DR PL CY (EUR)] - [DR PL Budget Adm (EUR)]
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 52802bb5-2442-41ad-bea9-a8cd7b40dd6c
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Budget Adm Matrix (EUR) %' =
+			
+			
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_2_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_3_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_4_DESC]) ||
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_5_DESC]),
+			    [DR PL Budget Adm (EUR) %],
+			    CALCULATE(
+			        [DR PL Budget Adm (EUR) %],
+			        'VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_CODE] = 10955
+			    )
+			)
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: c3eb4924-72b9-4bd4-85cb-fb18ba86b1e3
+
+		changedProperty = IsHidden
+
+	measure Cabeçalhos =
+			
+			CALCULATE(
+			    SUM(VIEW_NLR_FACT_BI_TRANS_PL[PBI_VALUE]) + SUM(VIEW_NLR_FACT_BI_TRANS_PL_BUDGET[PBI_VALUE]),
+			    ALL(CALCGROUP_CURRENCY),
+			    ALL(CALCGROUP_ACCUMULATED_PERIOD),
+			    REMOVEFILTERS(CALCGROUP_CURRENCY)
+			)
+		displayFolder: UI
+		lineageTag: c4aaed7e-dea1-4fae-8a3f-b05cbde862d6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Indicators = ```
+			
+			
+			SWITCH(
+			    SELECTEDVALUE('PBI_TABLE_INDICADORES'[Id]),
+			    1, [DR PL CY Matrix],
+			    2, [DR PL CY Matrix %],
+			    3, [DR PL Budget Matrix],
+			    4, [DR PL Budget Matrix %],
+			    5, [DR PL Delta Budget Matrix],
+			    6, [DR PL Delta Budget %],    
+			    7, [DR PL Budget Adm Matrix],
+			    8, [DR PL Budget Adm Matrix %],
+			    9, [DR PL Delta Budget Adm Matrix],
+			    10, [DR PL Delta Budget Adm %],
+			    11, [DR PL LY Matrix],
+			    12, [DR PL LY Matrix %],
+			    13, [DR PL Delta LY Matrix],
+			    14, [DR PL Delta LY %]
+			)
+			
+			```
+		displayFolder: UI
+		lineageTag: d200a109-4a26-45c3-ae14-1728172b98d6
+
+		formatStringDefinition = ```
+				SWITCH(
+				    SELECTEDVALUE('PBI_TABLE_INDICADORES'[Id]),
+				    1, "###,###,###,###",
+				    2, "0.0%",
+				    3, "###,###,###,###",
+				    4, "0.0%",
+				    5, "###,###,###,###",
+				    6, "0.0%",    
+				    7, "###,###,###,###",
+				    8, "0.0%",
+				    9, "###,###,###,###",
+				    10, "0.0%",
+				    11, "###,###,###,###",
+				    12, "0.0%",
+				    13, "###,###,###,###",
+				    14, "0.0%"
+				)
+				```
+
+	measure 'Indicators (EUR)' = ```
+			
+			
+			SWITCH(
+			    SELECTEDVALUE('PBI_TABLE_INDICADORES'[Id]),
+			    1, [DR PL CY Matrix (EUR)],
+			    2, [DR PL CY Matrix (EUR) %],
+			    3, [DR PL Budget Matrix (EUR)],
+			    4, [DR PL Budget Matrix (EUR) %],
+			    5, [DR PL Delta Budget Matrix (EUR)],
+			    6, [DR PL Delta Budget (EUR) %],    
+			    7, [DR PL Budget Adm Matrix (EUR)],
+			    8, [DR PL Budget Adm Matrix (EUR) %],
+			    9, [DR PL Delta Budget Adm Matrix (EUR)],
+			    10, [DR PL Delta Budget Adm (EUR) %],
+			    11, [DR PL LY Matrix (EUR)],
+			    12, [DR PL LY Matrix (EUR) %],
+			    13, [DR PL Delta LY Matrix (EUR)],
+			    14, [DR PL Delta LY (EUR) %]
+			)
+			```
+		isHidden
+		displayFolder: UI
+		lineageTag: 129be14c-6467-4ad0-ae57-badccb93ad08
+
+		formatStringDefinition = ```
+				SWITCH(
+				    SELECTEDVALUE('PBI_TABLE_INDICADORES'[Id]),
+				    1, "###,###,###,###",
+				    2, "0.0%",
+				    3, "###,###,###,###",
+				    4, "0.0%",
+				    5, "###,###,###,###",
+				    6, "0.0%",    
+				    7, "###,###,###,###",
+				    8, "0.0%",
+				    9, "###,###,###,###",
+				    10, "0.0%",
+				    11, "###,###,###,###",
+				    12, "0.0%",
+				    13, "###,###,###,###",
+				    14, "0.0%"
+				)
+				```
+
+		changedProperty = IsHidden
+
+	measure Polaridade =
+			
+			MIN(VIEW_NLR_DIM_PL_WITH_LANG[POLARITY])
+		formatString: 0
+		displayFolder: UI
+		lineageTag: f5323f33-3baf-4b36-8432-5a078c566423
+
+	measure 'DR PL CY vs Budget %' =
+			
+			DIVIDE([DR PL CY], [DR PL Budget])
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Ach. %
+		lineageTag: e67aefec-da37-467e-b402-b86b62f5095a
+
+	measure 'format. DR PL CY vs Budget' = ```
+			
+			IF(
+			    [DR PL CY vs Budget %] < 0, 
+			    0, 
+			    1
+			)
+			```
+		formatString: #,0
+		displayFolder: UI
+		lineageTag: e6d23b8c-3509-4e72-bae3-98bc466954f2
+
+	measure 'DR PL CY vs Budget Adm %' =
+			
+			DIVIDE([DR PL CY], [DR PL Budget Adm])
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Ach. %
+		lineageTag: 9ded9e33-0c75-422b-9e88-9f003e60c3f4
+
+	measure 'DR PL CY vs LY %' =
+			
+			DIVIDE([DR PL CY], [DR PL LY])
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		displayFolder: DR PL\Ach. %
+		lineageTag: 7312080a-3cca-4dba-b85e-4fe4a3577260
+
+	measure 'format. DR PL CY vs Budget Adm' = ```
+			
+			IF(
+			    [DR PL CY vs Budget Adm %] < 0, 
+			    0, 
+			    1
+			)
+			```
+		formatString: 0
+		displayFolder: UI
+		lineageTag: 6b49d309-dff9-4510-9e78-a769dfb10540
+
+	measure 'format. DR PL CY vs LY' = ```
+			
+			IF(
+			    [DR PL CY vs LY %] < 0, 
+			    0, 
+			    1
+			)
+			```
+		formatString: 0
+		displayFolder: UI
+		lineageTag: ce89b694-4c97-4efb-888a-085610bb8c9d
+
+	measure 'DR PL CY vs Budget (EUR) %' =
+			
+			DIVIDE([DR PL CY (EUR)], [DR PL Budget (EUR)])
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: f935b02d-a232-43ab-a4b4-c228653135e3
+
+		changedProperty = IsHidden
+
+	measure 'DR PL CY vs Budget Adm (EUR) %' =
+			
+			DIVIDE([DR PL CY (EUR)], [DR PL Budget Adm (EUR)])
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 47496f75-b3e2-4f5d-927d-0dc7bf903660
+
+		changedProperty = IsHidden
+
+	measure 'DR PL CY vs LY (EUR) %' =
+			
+			DIVIDE([DR PL CY (EUR)], [DR PL LY (EUR)])
+		formatString: #,0.0%;-#,0.0%;#,0.0%
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: ffc1c141-d1fa-442e-9825-4dcefa79b792
+
+		changedProperty = IsHidden
+
+	measure daily_update_NLR =
+			
+			CALCULATE(
+			    MIN(VIEW_GBL_DTBI_LAST_UPDATE[DAILY_UPDATED]),
+			    VIEW_GBL_DTBI_LAST_UPDATE[AREA] = "NLR"
+			)
+		displayFolder: UI
+		lineageTag: 39499ee0-7c04-4e6d-97ab-fad5e5fe411b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Color Daily Update' =
+			
+			
+			IF(
+			    [daily_update_NLR] = 0,
+			    0,
+			    1)
+		displayFolder: UI
+		lineageTag: 5b1505f2-264d-42b9-a780-6a5695cfa86f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure simbol_daily_update_NLR =
+			
+			
+			IF(
+			    [daily_update_NLR] = 0,
+			    "⚠️",
+			    "✔️")
+		displayFolder: UI
+		lineageTag: 753b7fde-d78b-4956-a5fb-1ea1a27f18de
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DR PL Detail CY vs Budget' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [DR PL CY vs Budget %] < 0.8,
+			    FORMAT([DR PL CY vs Budget %], "0.0% 🟠; 0.0%"),
+			    [DR PL CY vs Budget %] >= 0.8 && [DR PL CY vs Budget %] < 1,
+			    FORMAT([DR PL CY vs Budget %], "0.0% 🟡; 0.0%"),
+			    [DR PL CY vs Budget %] >= 1,
+			    FORMAT([DR PL CY vs Budget %], "0.0% 🟢; 0.0%")
+			)
+			
+			
+			```
+		displayFolder: DR PL\Ach. %
+		lineageTag: e170a609-10fa-4f43-88ac-73bb8c8d68a8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DR PL Detail CY vs Budget Adm' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    [DR PL CY vs Budget Adm %] < 0.8,
+			    FORMAT([DR PL CY vs Budget Adm %], "0.0% 🟠; 0.0%"),
+			    [DR PL CY vs Budget Adm %] >= 0.8 && [DR PL CY vs Budget Adm %] < 1,
+			    FORMAT([DR PL CY vs Budget Adm %], "0.0% 🟡; 0.0%"),
+			    [DR PL CY vs Budget Adm %] >= 1,
+			    FORMAT([DR PL CY vs Budget Adm %], "0.0% 🟢; 0.0%")
+			)
+			
+			```
+		displayFolder: DR PL\Ach. %
+		lineageTag: e544c7d0-dee6-441a-8ce1-1ee806cc2640
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DR PL Detail CY vs LY' =
+			
+			SWITCH(
+			    TRUE(),
+			    [DR PL CY vs LY %] < 0.8,
+			    FORMAT([DR PL CY vs LY %], "0.0% 🟠; 0.0%"),
+			    [DR PL CY vs LY %] >= 0.8 && [DR PL CY vs LY %] < 1,
+			    FORMAT([DR PL CY vs LY %], "0.0% 🟡; 0.0%"),
+			    [DR PL CY vs LY %] >= 1,
+			    FORMAT([DR PL CY vs LY %], "0.0% 🟢; 0.0%")
+			)
+		displayFolder: DR PL\Ach. %
+		lineageTag: 9c120ec6-f40a-4fc6-9385-5b7827fee133
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'DR PL Detail CY vs Budget (EUR)' =
+			
+			SWITCH(
+			    TRUE(),
+			    [DR PL CY vs Budget (EUR) %] < 0.8,
+			    FORMAT([DR PL CY vs Budget (EUR) %], "0.0% 🟠; 0.0%"),
+			    [DR PL CY vs Budget (EUR) %] >= 0.8 && [DR PL CY vs Budget (EUR) %] < 1,
+			    FORMAT([DR PL CY vs Budget (EUR) %], "0.0% 🟡; 0.0%"),
+			    [DR PL CY vs Budget (EUR) %] >= 1,
+			    FORMAT([DR PL CY vs Budget (EUR) %], "0.0% 🟢; 0.0%")
+			)
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 6d7bdce1-c40e-4f6f-894d-79c7ea5be3fb
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Detail CY vs Budget Adm (EUR)' =
+			
+			SWITCH(
+			    TRUE(),
+			    [DR PL CY vs Budget Adm (EUR) %] < 0.8,
+			    FORMAT([DR PL CY vs Budget Adm (EUR) %], "0.0% 🟠; 0.0%"),
+			    [DR PL CY vs Budget Adm (EUR) %] >= 0.8 && [DR PL CY vs Budget Adm (EUR) %] < 1,
+			    FORMAT([DR PL CY vs Budget Adm (EUR) %], "0.0% 🟡; 0.0%"),
+			    [DR PL CY vs Budget Adm (EUR) %] >= 1,
+			    FORMAT([DR PL CY vs Budget Adm (EUR) %], "0.0% 🟢; 0.0%")
+			)
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: f6b3457c-7a53-4dac-94e9-a52655b05bf9
+
+		changedProperty = IsHidden
+
+	measure 'DR PL Detail CY vs LY (EUR)' =
+			
+			SWITCH(
+			    TRUE(),
+			    [DR PL CY vs LY (EUR) %] < 0.8,
+			    FORMAT([DR PL CY vs LY (EUR) %], "0.0% 🟠; 0.0%"),
+			    [DR PL CY vs LY (EUR) %] >= 0.8 && [DR PL CY vs LY (EUR) %] < 1,
+			    FORMAT([DR PL CY vs LY (EUR) %], "0.0% 🟡; 0.0%"),
+			    [DR PL CY vs LY (EUR) %] >= 1,
+			    FORMAT([DR PL CY vs LY (EUR) %], "0.0% 🟢; 0.0%")
+			)
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: 25f6f8a6-9981-44ee-bc51-3d93af9cdeff
+
+		changedProperty = IsHidden
+
+	measure 'Color DR PL Delta Budget Matrix' = ```
+			
+			
+			VAR DRPLDeltaBudget = [DR PL Delta Budget Matrix]
+			
+			VAR sinal = 
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]),
+			    DRPLDeltaBudget * [Polaridade],
+			    DRPLDeltaBudget
+			)
+			
+			RETURN
+			
+			SWITCH(
+			    TRUE(),
+			    sinal < 0, -1,
+			    sinal = 0, 0,
+			    sinal > 0, 1
+			)
+			
+			
+			```
+		displayFolder: UI
+		lineageTag: a5a5a2de-2db9-4d53-89ff-50bee3e82954
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Color DR PL Delta Budget Adm Matrix' = ```
+			
+			
+			VAR DRPLDeltaBudgetAdm = [DR PL Delta Budget Adm Matrix]
+			
+			VAR sinal = 
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]),
+			    DRPLDeltaBudgetAdm * [Polaridade],
+			    DRPLDeltaBudgetAdm
+			)
+			
+			RETURN
+			
+			SWITCH(
+			    TRUE(),
+			    sinal < 0, -1,
+			    sinal = 0, 0,
+			    sinal > 0, 1
+			)
+			```
+		formatString: 0
+		displayFolder: UI
+		lineageTag: 107b48d8-aa54-4adb-b4fc-713378a29d20
+
+	measure 'Color DR PL Delta LY Matrix' = ```
+			
+			
+			VAR DRPLDeltaLY = [DR PL Delta LY Matrix]
+			
+			VAR sinal = 
+			IF(
+			    ISINSCOPE('VIEW_NLR_DIM_PL_WITH_LANG'[PL_LEVEL_1_DESC]),
+			    DRPLDeltaLY * [Polaridade],
+			    DRPLDeltaLY
+			)
+			
+			RETURN
+			
+			SWITCH(
+			    TRUE(),
+			    sinal < 0, -1,
+			    sinal = 0, 0,
+			    sinal > 0, 1
+			)
+			```
+		formatString: 0
+		displayFolder: UI
+		lineageTag: 76228741-c7b0-44e4-a612-6f20c7547857
+
+	measure 'DR PL CY (EUR)' =
+			
+			CALCULATE(
+			    SUMX(
+			    VIEW_NLR_FACT_BI_TRANS_PL,
+			        DIVIDE(
+			            VIEW_NLR_FACT_BI_TRANS_PL[PBI_VALUE],
+			            VIEW_NLR_FACT_BI_TRANS_PL[CURRENCY_RATE]
+			        )
+			    ),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = 1
+			)
+			-
+			CALCULATE(
+			    SUMX(
+			    VIEW_NLR_FACT_BI_TRANS_PL,
+			        DIVIDE(
+			            VIEW_NLR_FACT_BI_TRANS_PL[PBI_VALUE],
+			            VIEW_NLR_FACT_BI_TRANS_PL[CURRENCY_RATE]
+			        )
+			    ),
+			    VIEW_NLR_SETUP_PL_CALC_CATEGORIES_GSC[PL_Code_Source_Signal_ForCalculations] = -1
+			)
+		formatString: #,0
+		isHidden
+		displayFolder: DR PL\EUR
+		lineageTag: d654d8b7-bc30-4024-baf0-52e54aaed3ca
+
+		changedProperty = IsHidden
+
+	measure 'Title - Clear Filters' =
+			
+			
+			SWITCH(
+			    LEFT(USERCULTURE(), 2),
+			    "pt", "Limpar Filtros",
+			    "en", "Clear Filters",
+			    "es", "Limpiar Filtros",
+			    "fr", "Effacer les Filtres",
+			    "Clear Filters"
+			)
+		displayFolder: UI
+		lineageTag: c2ba323f-7f38-4496-9009-82138bbbfc43
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Title - Close Filters' =
+			
+			
+			SWITCH(
+			    LEFT(USERCULTURE(), 2),
+			    "pt", "Fechar Filtros",
+			    "en", "Close Filters",
+			    "es", "Cerrar Filtros",
+			    "fr", "Fermer les Filtres",
+			    "Close Filters"
+			)
+		displayFolder: UI
+		lineageTag: fcc30af3-012c-411c-9554-31a00cc9e4c2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Title - Filter' =
+			
+			
+			SWITCH(
+			    LEFT(USERCULTURE(), 2),
+			    "pt", "Mais Filtros",
+			    "en", "More Filters",
+			    "es", "Más Filtros",
+			    "fr", "Plus de Filtres",
+			    "More Filters"
+			)
+		displayFolder: UI
+		lineageTag: 59550c9e-b237-4ca1-b840-51ddbeaccde3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Title - Matrix' =
+			
+			
+			SWITCH(
+			    LEFT(USERCULTURE(), 2),
+			    "pt", "Demonstração de Resultados",
+			    "en", "Income Statements",
+			    "es", "Estado de Resultados",
+			    "fr", "Compte de Résultat",
+			    "Income Statements"
+			)
+		displayFolder: UI
+		lineageTag: b794fd20-4836-4f37-bf60-d3927ad81090
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	/// DW:PBI.MEASURE_TABLE._MEASURE_TABLE
+	column _MEASURE_TABLE
+		dataType: string
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: e9d76a32-9504-47f5-bd5d-c979f624c30d
+		summarizeBy: none
+		sourceColumn: _MEASURE_TABLE
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MEASURE_TABLE = m
+		mode: import
+		source =
+				let
+				    Source = "",
+				    #"Renamed Columns" = Table.RenameColumns(Source,{{"MEASURE_TABLE", "_MEASURE_TABLE"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+	annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":["ENSURE_TABLES_HAVE_RELATIONSHIPS"]}
+

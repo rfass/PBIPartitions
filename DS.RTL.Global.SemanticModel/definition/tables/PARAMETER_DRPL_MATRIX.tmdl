@@ -1,0 +1,134 @@
+/// DW: PBI.PARAMETER_MEASURES
+table PARAMETER_DRPL_MATRIX
+	lineageTag: a0413d6f-0476-40f4-91be-bbc2314dd6e2
+
+	/// DW:PBI.PARAMETER_MEASURES.PARAMETER_MEASURES
+	column PARAMETER_MEASURES
+		lineageTag: d53173bc-1ee7-47f6-a609-00057d768605
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'PARAMETER_MEASURES Order'
+
+		relatedColumnDetails
+			groupByColumn: 'PARAMETER_MEASURES Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.PARAMETER_MEASURES.PARAMETER_MEASURES Fields
+	column 'PARAMETER_MEASURES Fields'
+		isHidden
+		lineageTag: 5233feca-915b-433b-bf84-5fddddd5590a
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'PARAMETER_MEASURES Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.PARAMETER_MEASURES.PARAMETER_MEASURES Order
+	column 'PARAMETER_MEASURES Order'
+		isHidden
+		formatString: 0
+		lineageTag: 1ce04740-7b96-43e0-8f0b-8496c2bbad7e
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	/// DW:PBI.PARAMETER_MEASURES.USER_CULTURE
+	column USER_CULTURE
+		lineageTag: ea8d9f84-e93e-43f5-968f-b073461ee420
+		summarizeBy: none
+		sourceColumn: [Value4]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value_Type
+		isHidden
+		formatString: 0
+		lineageTag: 164e733a-9bcf-4a9e-ac19-2d41bc38595f
+		summarizeBy: none
+		sourceColumn: [Value5]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PARAMETER_DRPL_MATRIX = calculated
+		mode: import
+		source = ```
+				{
+				
+				    ("CY", NAMEOF('MEASURE_TABLE'[DR PL CY Matrix]), 0, "pt-PT", 2),
+				    ("CY %", NAMEOF('MEASURE_TABLE'[DR PL CY Matrix %]), 1, "pt-PT", 2),
+				    ("Orç", NAMEOF('MEASURE_TABLE'[DR PL Budget Matrix]), 2, "pt-PT", 3),
+				    ("Orç %", NAMEOF('MEASURE_TABLE'[DR PL Budget Matrix %]), 3, "pt-PT", 3),
+				    ("Δ Orç", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Matrix]), 4, "pt-PT", 3),
+				    ("Δ Orç %", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget %]), 5, "pt-PT", 3),    
+				    ("Orç Adm", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm Matrix]), 6, "pt-PT", 4),
+				    ("Orç Adm %", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm Matrix %]), 7, "pt-PT", 4),
+				    ("Δ Orç Adm", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm Matrix]), 8, "pt-PT", 4),
+				    ("Δ Orç Adm %", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm %]), 9, "pt-PT", 4),
+				    ("LY", NAMEOF('MEASURE_TABLE'[DR PL LY Matrix]), 10, "pt-PT", 2),
+				    ("LY %", NAMEOF('MEASURE_TABLE'[DR PL LY Matrix %]), 11, "pt-PT", 2),
+				    ("Δ LY", NAMEOF('MEASURE_TABLE'[DR PL Delta LY Matrix]), 12, "pt-PT", 2),
+				    ("Δ LY %", NAMEOF('MEASURE_TABLE'[DR PL Delta LY %]), 13, "pt-PT", 2),
+				
+				
+				    ("CY", NAMEOF('MEASURE_TABLE'[DR PL CY Matrix]), 0, "en-US", 2),
+				    ("CY %", NAMEOF('MEASURE_TABLE'[DR PL CY Matrix %]), 1, "en-US", 2),
+				    ("Budget", NAMEOF('MEASURE_TABLE'[DR PL Budget Matrix]), 2, "en-US", 3),
+				    ("Budget %", NAMEOF('MEASURE_TABLE'[DR PL Budget Matrix %]), 3, "en-US", 3),
+				    ("Δ Budget", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Matrix]), 4, "en-US", 3),
+				    ("Δ Budget %", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget %]), 5, "en-US", 3),
+				    ("Budget Adm", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm Matrix]), 6, "en-US", 4),
+				    ("Budget Adm %", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm Matrix %]), 7, "en-US", 4),
+				    ("Δ Budget Adm", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm Matrix]), 8, "en-US", 4),
+				    ("Δ Budget Adm %", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm %]), 9, "en-US", 4),
+				    ("LY", NAMEOF('MEASURE_TABLE'[DR PL LY Matrix]), 10, "en-US", 2),
+				    ("LY %", NAMEOF('MEASURE_TABLE'[DR PL LY Matrix %]), 11, "en-US", 2),
+				    ("Δ LY", NAMEOF('MEASURE_TABLE'[DR PL Delta LY Matrix]), 12, "en-US", 2),
+				    ("Δ LY %", NAMEOF('MEASURE_TABLE'[DR PL Delta LY %]), 13, "en-US", 2),
+				    
+				
+				
+				    ("CY", NAMEOF('MEASURE_TABLE'[DR PL CY Matrix]), 0, "es-ES", 2),
+				    ("CY %", NAMEOF('MEASURE_TABLE'[DR PL CY Matrix %]), 1, "es-ES", 2),
+				    ("Ppto", NAMEOF('MEASURE_TABLE'[DR PL Budget Matrix]), 2, "es-ES", 3),
+				    ("Ppto %", NAMEOF('MEASURE_TABLE'[DR PL Budget Matrix %]), 3, "es-ES", 3),
+				    ("Δ Ppto", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Matrix]), 4, "es-ES", 3),
+				    ("Δ Ppto %", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget %]), 5, "es-ES", 3),
+				    ("Ppto Adm", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm Matrix]), 6, "es-ES", 4),
+				    ("Ppto Adm %", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm Matrix %]), 7, "es-ES", 4),
+				    ("Δ Ppto Adm", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm Matrix]), 8, "es-ES", 4),
+				    ("Δ Ppto Adm %", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm %]), 9, "es-ES", 4),
+				    ("LY", NAMEOF('MEASURE_TABLE'[DR PL LY Matrix]), 10, "es-ES", 2),
+				    ("LY %", NAMEOF('MEASURE_TABLE'[DR PL LY Matrix %]), 11, "es-ES", 2),
+				    ("Δ LY", NAMEOF('MEASURE_TABLE'[DR PL Delta LY Matrix]), 12, "es-ES", 2),
+				    ("Δ LY %", NAMEOF('MEASURE_TABLE'[DR PL Delta LY %]), 13, "es-ES", 2),
+				    
+				
+				
+				    ("CY", NAMEOF('MEASURE_TABLE'[DR PL CY Matrix]), 0, "fr-FR", 2),
+				    ("CY %", NAMEOF('MEASURE_TABLE'[DR PL CY Matrix %]), 1, "fr-FR", 2),
+				    ("Budget", NAMEOF('MEASURE_TABLE'[DR PL Budget Matrix]), 2, "fr-FR", 3),
+				    ("Budget %", NAMEOF('MEASURE_TABLE'[DR PL Budget Matrix %]), 3, "fr-FR", 3),
+				    ("Δ Budget", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Matrix]), 4, "fr-FR", 3),
+				    ("Δ Budget %", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget %]), 5, "fr-FR", 3),
+				    ("Budget Adm", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm Matrix]), 6, "fr-FR", 4),
+				    ("Budget Adm %", NAMEOF('MEASURE_TABLE'[DR PL Budget Adm Matrix %]), 7, "fr-FR", 4),
+				    ("Δ Budget Adm", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm Matrix]), 8, "fr-FR", 4),
+				    ("Δ Budget Adm %", NAMEOF('MEASURE_TABLE'[DR PL Delta Budget Adm %]), 9, "fr-FR", 4),
+				    ("LY", NAMEOF('MEASURE_TABLE'[DR PL LY Matrix]), 10, "fr-FR", 2),
+				    ("LY %", NAMEOF('MEASURE_TABLE'[DR PL LY Matrix %]), 11, "fr-FR", 2),
+				    ("Δ LY", NAMEOF('MEASURE_TABLE'[DR PL Delta LY Matrix]), 12, "fr-FR", 2),
+				    ("Δ LY %", NAMEOF('MEASURE_TABLE'[DR PL Delta LY %]), 13, "fr-FR", 2)
+				    
+				}
+				```
+
+	annotation PBI_Id = 4823fb65a2184aa59d1ed38aae147e11
+
