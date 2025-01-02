@@ -1,0 +1,298 @@
+table VIEW_NLR_FACT_BI_TRANS_PL_BUDGET
+	lineageTag: 2f931f47-cabe-44b4-bc75-4aa93fc9b3b5
+
+	column CLIENT_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5dc6a281-a5c5-4297-bbf0-f2e71570e5fa
+		summarizeBy: count
+		sourceColumn: CLIENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NLR_MAPPING_GROUP
+		dataType: int64
+		formatString: 0
+		lineageTag: 77899f39-dd03-425a-afca-ff499751151f
+		summarizeBy: sum
+		sourceColumn: NLR_MAPPING_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENVIRONMENT
+		dataType: int64
+		formatString: 0
+		lineageTag: e8364c3e-153f-4283-8555-e691e2544506
+		summarizeBy: sum
+		sourceColumn: ENVIRONMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column NLR_CODE
+		dataType: string
+		lineageTag: 70af8a75-d261-4acc-9123-c28f6aaa3146
+		summarizeBy: none
+		sourceColumn: NLR_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PERIOD
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7cd216f6-d76c-46ff-9963-d80790503b7d
+		summarizeBy: none
+		sourceColumn: PERIOD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column NLR_ACCOUNT
+		dataType: string
+		lineageTag: 3df94918-4779-4c57-bbd8-a8c4a7c10e13
+		summarizeBy: none
+		sourceColumn: NLR_ACCOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column NLR_ACCOUNT_DESC
+		dataType: string
+		lineageTag: ab08eb53-8df7-4e06-8f55-97bac73fd74d
+		summarizeBy: none
+		sourceColumn: NLR_ACCOUNT_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CENTRE
+		dataType: string
+		lineageTag: 7c43820a-7f79-47ea-a770-72b18e03eeaa
+		summarizeBy: none
+		sourceColumn: COST_CENTRE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CENTRE_DESC
+		dataType: string
+		lineageTag: 283a1cb8-2ef4-45f7-88ee-0fe963771d5f
+		summarizeBy: none
+		sourceColumn: COST_CENTRE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column COST_CENTRE_TYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d701c1c-2c74-43d5-9090-8d3976fdd3b9
+		summarizeBy: sum
+		sourceColumn: COST_CENTRE_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: eb97ca2e-ba27-4d7c-9e7e-aff146fb5626
+		summarizeBy: sum
+		sourceColumn: SITE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FRANCHISE_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: cfba6623-8d8e-4a22-8583-bae30268c42d
+		summarizeBy: sum
+		sourceColumn: FRANCHISE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVITY_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f91d059-6ab3-41ac-856d-668a7c372ed8
+		summarizeBy: sum
+		sourceColumn: ACTIVITY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_TYPE_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: bf7099a5-14ac-447a-9dc8-724af5dace73
+		summarizeBy: sum
+		sourceColumn: SALES_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VALUE_TYPE_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: b857c120-92e9-4538-93ba-9717c1218e43
+		summarizeBy: sum
+		sourceColumn: VALUE_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column BALANCE
+		dataType: double
+		lineageTag: e513ab28-81db-4b11-b0aa-a0dcc2eb9d28
+		summarizeBy: sum
+		sourceColumn: BALANCE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIST_VALUE
+		dataType: double
+		lineageTag: d53e3276-3899-4f35-a73c-c41213ed4326
+		summarizeBy: sum
+		sourceColumn: DIST_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIST_VALUE2
+		dataType: double
+		lineageTag: a96d4a7d-520c-4261-9832-77045d182860
+		summarizeBy: sum
+		sourceColumn: DIST_VALUE2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIST_VALUE3
+		dataType: double
+		lineageTag: 0b8e7c2e-d082-4fb8-911d-55b40c3ae669
+		summarizeBy: sum
+		sourceColumn: DIST_VALUE3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DIST_VALUE4
+		dataType: double
+		lineageTag: 8c111237-ace3-4972-908d-61e54af88d13
+		summarizeBy: sum
+		sourceColumn: DIST_VALUE4
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PL_CODE
+		dataType: string
+		lineageTag: e0d947b1-bc5a-40e8-87f2-bc0d91c8e428
+		summarizeBy: none
+		sourceColumn: PL_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PL_SIGNAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f788717-e661-474c-bf9e-7efd719e5a64
+		summarizeBy: sum
+		sourceColumn: PL_SIGNAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column PL_RECORD_TYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c658e51-6c04-4fb1-b71e-2564259ac535
+		summarizeBy: sum
+		sourceColumn: PL_RECORD_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PL_IFRS_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 58aa4b69-a018-4c9c-bc0b-ae24052bcca4
+		summarizeBy: sum
+		sourceColumn: PL_IFRS_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLSYTNER_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: e2e153d8-c655-4663-84ac-76963121bf7d
+		summarizeBy: sum
+		sourceColumn: PLSYTNER_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLSYTNER_SIGNAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 78eedc9b-d1a9-49a0-96da-8eeeafd391fa
+		summarizeBy: sum
+		sourceColumn: PLSYTNER_SIGNAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLDTR_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: d806c549-f1d0-403c-87e6-3a583711b955
+		summarizeBy: sum
+		sourceColumn: PLDTR_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLDTR_SIGNAL
+		dataType: int64
+		formatString: 0
+		lineageTag: d4a7e113-2f2f-416f-9899-0fe3e9e61b8b
+		summarizeBy: sum
+		sourceColumn: PLDTR_SIGNAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLDTR_RECORD_TYPE
+		dataType: int64
+		formatString: 0
+		lineageTag: a92840d0-035a-4524-80a0-6e9459db6abe
+		summarizeBy: sum
+		sourceColumn: PLDTR_RECORD_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENCY_RATE
+		dataType: double
+		lineageTag: 089ac7b2-54b0-4342-b66e-8e7d8b38764a
+		summarizeBy: sum
+		sourceColumn: CURRENCY_RATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PBI_VALUE
+		dataType: double
+		lineageTag: 1ac27f56-ba18-4f2f-973d-2a79a3766c39
+		summarizeBy: sum
+		sourceColumn: PBI_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition VIEW_NLR_FACT_BI_TRANS_PL_BUDGET = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Server, Database),
+				    PBI_VIEW_NLR_FACT_BI_TRANS_PL_BUDGET = Source{[Schema="PBI",Item="VIEW_NLR_FACT_BI_TRANS_PL_BUDGET"]}[Data]
+				in
+				    PBI_VIEW_NLR_FACT_BI_TRANS_PL_BUDGET
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

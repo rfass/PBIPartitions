@@ -1,0 +1,12 @@
+expression Database = "BI_IBE" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 939a95e0-3473-42bc-bea4-7a94a5d0191a
+
+	annotation PBI_ResultType = Text
+
+expression Server = "SCSQLSRV3.sc.pt\PRD" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: d03bedbb-4063-4edf-af05-935d38d4bf99
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

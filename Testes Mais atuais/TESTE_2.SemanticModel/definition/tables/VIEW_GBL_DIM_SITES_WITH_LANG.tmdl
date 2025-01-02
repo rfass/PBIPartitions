@@ -1,0 +1,178 @@
+table VIEW_GBL_DIM_SITES_WITH_LANG
+	lineageTag: 432b8927-c0cd-4a8b-843d-ba56f90ca92a
+
+	column CLIENT_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 88e70567-a367-4a44-88e8-d7e45f871c35
+		summarizeBy: count
+		sourceColumn: CLIENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 49899a9d-0d50-4aec-b0fd-5a3a5ba8688a
+		summarizeBy: sum
+		sourceColumn: SITE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_1_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 251a2146-6c9e-4219-8768-9a1902235d9c
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_1_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_2_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b8c144c-26fa-419d-a9d2-8dedde4c4d47
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_2_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_3_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: d4b526cd-5bf7-48d9-9400-987d5e544713
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_3_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_4_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: 69bed584-49bd-441b-b7b3-b30835953b30
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_4_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_5_CODE
+		dataType: int64
+		formatString: 0
+		lineageTag: cf99f4a2-082a-4aa3-a33c-785984359236
+		summarizeBy: sum
+		sourceColumn: SITE_LEVEL_5_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_1_DESC
+		dataType: string
+		lineageTag: 753dbbd0-35e7-4b4e-ba94-36f33b075276
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_1_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_2_DESC
+		dataType: string
+		lineageTag: 1506e616-a26c-4686-bf7b-226c11a0f8c3
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_2_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_3_DESC
+		dataType: string
+		lineageTag: 2e866785-c631-49ae-81de-723d88a72e0d
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_3_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_4_DESC
+		dataType: string
+		lineageTag: 6e142917-7c88-4d16-8f89-fec30aea9598
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_4_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_5_DESC
+		dataType: string
+		lineageTag: 58d41c57-7445-4e47-b91b-105582919c67
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_5_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_DESC
+		dataType: string
+		lineageTag: 453d35a3-e9f5-4b40-8922-7ac182c3e4d8
+		summarizeBy: none
+		sourceColumn: SITE_DESC
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_LEVEL_3_DESC_PSEADMRPT
+		dataType: string
+		lineageTag: 20610bdd-e22d-4246-83f2-6c5d79383009
+		summarizeBy: none
+		sourceColumn: SITE_LEVEL_3_DESC_PSEADMRPT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_DESC_PSEADMRPT
+		dataType: string
+		lineageTag: 1ce7d7de-f238-492f-aaa8-bfe821caaf86
+		summarizeBy: none
+		sourceColumn: SITE_DESC_PSEADMRPT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ACTIVE
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 252b30fa-4684-4a3d-abfd-b4651b2b52d1
+		summarizeBy: none
+		sourceColumn: ACTIVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SITE_DISPLAY_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 02c328a0-ccc0-4d00-b118-9811735dbadb
+		summarizeBy: sum
+		sourceColumn: SITE_DISPLAY_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column IFC_INCLUDED
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cf713504-efa2-4591-be4f-7b18bd9a49cb
+		summarizeBy: none
+		sourceColumn: IFC_INCLUDED
+
+		annotation SummarizationSetBy = Automatic
+
+	column USER_CULTURE
+		dataType: string
+		lineageTag: ba7aa697-9d64-48c8-8a9a-0a35f6476363
+		summarizeBy: none
+		sourceColumn: USER_CULTURE
+
+		annotation SummarizationSetBy = Automatic
+
+	partition VIEW_GBL_DIM_SITES_WITH_LANG = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(Server, "BI_GSC"),
+				    PBI_VIEW_GBL_DIM_SITES_WITH_LANG = Source{[Schema="PBI",Item="VIEW_GBL_DIM_SITES_WITH_LANG"]}[Data]
+				in
+				    PBI_VIEW_GBL_DIM_SITES_WITH_LANG
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
